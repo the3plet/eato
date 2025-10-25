@@ -38,9 +38,9 @@ export default function CartItem({ item }: Readonly<Props>) {
         <div className="flex justify-between items-start">
           <div>
             <h4 className="text-sm font-semibold">{item.name}</h4>
-            <p className="text-xs text-muted-foreground">120 EGP</p>
+            {/* <p className="text-xs text-muted-foreground">{item.id}</p> */}
           </div>
-          <div className="text-sm font-semibold">{item.price.toFixed(0)} EGP</div>
+          <div className="text-lg font-semibold">₹{item.price.toFixed(0)}</div>
         </div>
 
         <div className="mt-3 flex items-center justify-between">

@@ -24,15 +24,15 @@ export default function CartSummary() {
       <div className="rounded-lg border p-4 bg-white space-y-3">
         <div className="flex justify-between text-sm text-muted-foreground">
           <span>Sub-Total</span>
-          <span>{subtotal.toFixed(0)} EGP</span>
+          <span>₹{subtotal.toFixed(0)}</span>
         </div>
         <div className="flex justify-between text-sm text-muted-foreground">
           <span>Delivery Fee</span>
-          <span>{delivery} EGP</span>
+          <span>₹{delivery}</span>
         </div>
         <div className="flex justify-between text-base font-semibold mt-2">
           <span>Total-Cost</span>
-          <span>{total.toFixed(0)} EGP</span>
+          <span>₹{total.toFixed(0)}</span>
         </div>
       </div>
 
