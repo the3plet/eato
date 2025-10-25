@@ -3,10 +3,14 @@
 import CartItem from '@/components/cart/CartItem'
 import CartSummary from '@/components/cart/CartSummary'
 import { useCartStore } from '@/store/useCartStore'
+import { useEffect } from 'react'
 
 export default function Page() {
   const items = useCartStore((s) => s.items)
-const wHeight = window.innerHeight;
+  useEffect(()=>{
+
+    const wHeight = window.innerHeight;
+  },[])
   return (
     <div className="p-4 md:p-8   "  style={{ height: `${wHeight}px` }}>
       <h2 className="text-lg font-semibold mb-4">Your cart</h2>
