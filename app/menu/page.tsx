@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { foodItems } from "@/data/mockData";
 import { ListFilter, SlidersHorizontal } from "lucide-react";
 import React from "react";
-import useFilterSort from "@/components/menu/useFilterSort";
+import useFilterSort from "@/hooks/useFilterSort";
 import MenuFilter from "@/components/menu/MenuFilter";
 
 type Props = {};

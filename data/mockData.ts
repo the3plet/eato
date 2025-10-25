@@ -1,5 +1,10 @@
-import { User, FoodCategory, Restaurant, FoodItem, CurrentUser } from "@/types/mockType";
-
+import {
+  User,
+  FoodCategory,
+  Restaurant,
+  FoodItem,
+  CurrentUser,
+} from "@/types/mockType";
 
 export const users: User[] = [
   {
@@ -19,7 +24,6 @@ export const users: User[] = [
     defaultAddress: "456 Oak Avenue, Townsville",
   },
 ];
-
 
 export const foodCategories = [
   {
@@ -41,21 +45,19 @@ export const foodCategories = [
       "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&q=80",
   },
   {
-  id: "c4",
-  name: "Desserts",
-  image:
-    "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&q=80",
-},
+    id: "c4",
+    name: "Desserts",
+    image:
+      "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&q=80",
+  },
 
-{
-  id: "c5",
-  name: "Drinks",
-  image:
-    "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&q=80",
-}
+  {
+    id: "c5",
+    name: "Drinks",
+    image:
+      "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&q=80",
+  },
 ];
-
-
 
 export const topRestaurants: Restaurant[] = [
   {
@@ -83,7 +85,6 @@ export const topRestaurants: Restaurant[] = [
     image: "https://source.unsplash.com/200x150/?restaurant,sushi",
   },
 ];
-
 
 export const trendingFoodItems: FoodItem[] = [
   {
@@ -128,7 +129,6 @@ export const trendingFoodItems: FoodItem[] = [
   },
 ];
 
-
 export const currentUser: CurrentUser = {
   id: "u1",
   username: "JohnDoe",
@@ -138,7 +138,7 @@ export const currentUser: CurrentUser = {
   defaultAddress: "Puthiyara, Kozhikode",
 };
 
-export const foodItems: FoodItem[]  =[
+export const foodItems: FoodItem[] = [
   {
     id: "f1",
     name: "Chicken Biryani",
@@ -148,7 +148,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 124, star: 4.6 },
     deliveryTime: "30-40 mins",
     image: "https://foodish-api.com/images/biryani/biryani81.jpg",
-    tags: ["biryani", "indian", "non-veg"],
+    tags: ["biryani"],
   },
   {
     id: "f2",
@@ -159,7 +159,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 98, star: 4.7 },
     deliveryTime: "35-45 mins",
     image: "https://foodish-api.com/images/biryani/biryani34.jpg",
-    tags: ["biryani", "indian", "non-veg"],
+    tags: ["biryani"],
   },
   {
     id: "f3",
@@ -170,7 +170,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 76, star: 4.3 },
     deliveryTime: "25-35 mins",
     image: "https://foodish-api.com/images/biryani/biryani12.jpg",
-    tags: ["biryani", "indian", "vegetarian"],
+    tags: ["biryani"],
   },
   {
     id: "f4",
@@ -181,7 +181,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 204, star: 4.5 },
     deliveryTime: "20-30 mins",
     image: "https://foodish-api.com/images/burger/burger87.jpg",
-    tags: ["burger", "american", "fast food"],
+    tags: ["burger"],
   },
   {
     id: "f5",
@@ -192,7 +192,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 132, star: 4.4 },
     deliveryTime: "25-35 mins",
     image: "https://foodish-api.com/images/burger/burger45.jpg",
-    tags: ["burger", "american", "fast food"],
+    tags: ["burger"],
   },
   {
     id: "f6",
@@ -203,7 +203,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 189, star: 4.8 },
     deliveryTime: "30-40 mins",
     image: "https://foodish-api.com/images/butter-chicken/butter-chicken22.jpg",
-    tags: ["north indian", "non-veg", "butter chicken"],
+    tags: ["butter chicken"],
   },
   {
     id: "f7",
@@ -214,7 +214,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 95, star: 4.7 },
     deliveryTime: "35-45 mins",
     image: "https://foodish-api.com/images/butter-chicken/butter-chicken64.jpg",
-    tags: ["north indian", "combo", "non-veg"],
+    tags: ["butter chicken"],
   },
   {
     id: "f8",
@@ -225,7 +225,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 145, star: 4.9 },
     deliveryTime: "20-25 mins",
     image: "https://foodish-api.com/images/dessert/dessert36.jpg",
-    tags: ["dessert", "cake", "sweet"],
+    tags: ["dessert"],
   },
   {
     id: "f9",
@@ -236,7 +236,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 103, star: 4.7 },
     deliveryTime: "20-25 mins",
     image: "https://foodish-api.com/images/dessert/dessert22.jpg",
-    tags: ["dessert", "cake", "sweet"],
+    tags: ["dessert"],
   },
   {
     id: "f10",
@@ -247,7 +247,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 211, star: 4.6 },
     deliveryTime: "20-30 mins",
     image: "https://foodish-api.com/images/dosa/dosa83.jpg",
-    tags: ["south indian", "dosa", "vegetarian"],
+    tags: ["dosa"],
   },
   {
     id: "f11",
@@ -258,7 +258,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 95, star: 4.4 },
     deliveryTime: "25-35 mins",
     image: "https://foodish-api.com/images/dosa/dosa45.jpg",
-    tags: ["south indian", "paneer", "vegetarian"],
+    tags: ["dosa"],
   },
   {
     id: "f12",
@@ -269,7 +269,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 78, star: 4.5 },
     deliveryTime: "20-30 mins",
     image: "https://foodish-api.com/images/dosa/dosa62.jpg",
-    tags: ["south indian", "dosa", "vegetarian"],
+    tags: ["dosa"],
   },
   {
     id: "f13",
@@ -280,7 +280,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 133, star: 4.3 },
     deliveryTime: "15-20 mins",
     image: "https://foodish-api.com/images/idly/idly77.jpg",
-    tags: ["south indian", "breakfast", "idly"],
+    tags: ["idly"],
   },
   {
     id: "f14",
@@ -291,7 +291,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 89, star: 4.2 },
     deliveryTime: "15-20 mins",
     image: "https://foodish-api.com/images/idly/idly35.jpg",
-    tags: ["south indian", "breakfast", "idly"],
+    tags: ["idly"],
   },
   {
     id: "f15",
@@ -302,7 +302,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 160, star: 4.5 },
     deliveryTime: "25-35 mins",
     image: "https://foodish-api.com/images/pasta/pasta34.jpg",
-    tags: ["pasta", "italian", "creamy"],
+    tags: ["pasta"],
   },
   {
     id: "f16",
@@ -313,7 +313,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 99, star: 4.3 },
     deliveryTime: "25-35 mins",
     image: "https://foodish-api.com/images/pasta/pasta12.jpg",
-    tags: ["pasta", "italian", "spicy"],
+    tags: ["pasta"],
   },
   {
     id: "f17",
@@ -324,7 +324,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 145, star: 4.5 },
     deliveryTime: "30-40 mins",
     image: "https://foodish-api.com/images/pizza/pizza95.jpg",
-    tags: ["pizza", "italian", "vegetarian"],
+    tags: ["pizza"],
   },
   {
     id: "f18",
@@ -335,7 +335,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 175, star: 4.6 },
     deliveryTime: "30-40 mins",
     image: "https://foodish-api.com/images/pizza/pizza34.jpg",
-    tags: ["pizza", "italian", "non-veg"],
+    tags: ["pizza"],
   },
   {
     id: "f19",
@@ -346,7 +346,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 132, star: 4.4 },
     deliveryTime: "25-35 mins",
     image: "https://foodish-api.com/images/pizza/pizza15.jpg",
-    tags: ["pizza", "italian", "vegetarian"],
+    tags: ["pizza"],
   },
   {
     id: "f20",
@@ -357,7 +357,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 160, star: 4.5 },
     deliveryTime: "20-30 mins",
     image: "https://foodish-api.com/images/rice/rice35.jpg",
-    tags: ["chinese", "rice", "vegetarian"],
+    tags: ["biryani"],
   },
   {
     id: "f21",
@@ -368,7 +368,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 108, star: 4.4 },
     deliveryTime: "20-30 mins",
     image: "https://foodish-api.com/images/rice/rice22.jpg",
-    tags: ["chinese", "rice", "non-veg"],
+    tags: ["biryani"],
   },
   {
     id: "f22",
@@ -379,7 +379,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 189, star: 4.7 },
     deliveryTime: "25-35 mins",
     image: "https://foodish-api.com/images/rice/rice18.jpg",
-    tags: ["chinese", "spicy", "rice"],
+    tags: ["biryani"],
   },
   {
     id: "f23",
@@ -390,7 +390,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 102, star: 4.2 },
     deliveryTime: "15-25 mins",
     image: "https://foodish-api.com/images/samosa/samosa22.jpg",
-    tags: ["street food", "indian", "vegetarian"],
+    tags: ["dessert"],
   },
   {
     id: "f24",
@@ -401,7 +401,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 143, star: 4.3 },
     deliveryTime: "15-20 mins",
     image: "https://foodish-api.com/images/samosa/samosa34.jpg",
-    tags: ["street food", "snack", "vegetarian"],
+    tags: ["dessert"],
   },
   {
     id: "f25",
@@ -412,7 +412,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 67, star: 4.1 },
     deliveryTime: "20-25 mins",
     image: "https://foodish-api.com/images/samosa/samosa41.jpg",
-    tags: ["street food", "cheese", "snack"],
+    tags: ["dessert"],
   },
   {
     id: "f26",
@@ -423,7 +423,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 177, star: 4.6 },
     deliveryTime: "30-40 mins",
     image: "https://foodish-api.com/images/butter-chicken/butter-chicken41.jpg",
-    tags: ["north indian", "paneer", "vegetarian"],
+    tags: ["butter chicken"],
   },
   {
     id: "f27",
@@ -434,7 +434,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 163, star: 4.5 },
     deliveryTime: "30-40 mins",
     image: "https://foodish-api.com/images/pizza/pizza45.jpg",
-    tags: ["pizza", "fusion", "non-veg"],
+    tags: ["pizza"],
   },
   {
     id: "f28",
@@ -445,7 +445,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 97, star: 4.3 },
     deliveryTime: "25-35 mins",
     image: "https://foodish-api.com/images/rice/rice44.jpg",
-    tags: ["chinese", "paneer", "vegetarian"],
+    tags: ["biryani"],
   },
   {
     id: "f29",
@@ -456,7 +456,7 @@ export const foodItems: FoodItem[]  =[
     review: { count: 120, star: 4.5 },
     deliveryTime: "20-30 mins",
     image: "https://foodish-api.com/images/dosa/dosa72.jpg",
-    tags: ["south indian", "dosa", "vegetarian"],
+    tags: ["dosa"],
   },
   {
     id: "f30",
@@ -467,7 +467,6 @@ export const foodItems: FoodItem[]  =[
     review: { count: 111, star: 4.4 },
     deliveryTime: "15-20 mins",
     image: "https://foodish-api.com/images/idly/idly41.jpg",
-    tags: ["south indian", "breakfast", "idly"],
+    tags: ["idly"],
   },
 ];
-

@@ -23,10 +23,10 @@ export default function SortModal({ open, onClose, value, onChange }: Readonly<P
   ]
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center">
+    <div className="fixed inset-0 z-100 flex items-start p-4 md:items-center justify-center">
       <button type="button" aria-label="Close sort" className="absolute inset-0 bg-black/40" onClick={onClose} />
 
-      <div className="relative w-full md:w-1/3 bg-white rounded-t-lg md:rounded-lg p-4 md:p-6">
+      <div className="relative w-full md:w-1/3 border2 shadow-2xl bg-white border-slate-400 rounded-lg md:rounded-lg p-4 md:p-6">
         <h3 className="text-lg font-semibold mb-3">Sort</h3>
         <div className="flex flex-col gap-2">
           {options.map((o) => (

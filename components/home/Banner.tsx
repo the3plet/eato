@@ -20,7 +20,7 @@ export default function Banner() {
                   alt={`Banner ${idx + 1}`}
                   fill
                   sizes="(max-width: 640px) 100vw, 50vw"
-                  className="object-fill"
+                  className="object-contain"
                 />
               </div>
             </CarouselItem>

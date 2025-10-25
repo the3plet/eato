@@ -26,14 +26,14 @@ export default function FilterModal({ open, onClose, onApply, initial, allItems 
   const [tags, setTags] = React.useState<string[]>(initial?.tags ?? [])
   const [restaurants, setRestaurants] = React.useState<string[]>(initial?.restaurants ?? [])
 
-  React.useEffect?.(() => {
+  React.useEffect(() => {
     if (!open && initial) {
       setMinPrice(initial.minPrice)
       setMaxPrice(initial.maxPrice)
       setTags(initial.tags ?? [])
       setRestaurants(initial.restaurants ?? [])
     }
-  }, [open])
+  }, [open, initial])
 
   const allTags = Array.from(new Set(allItems.flatMap((i) => i.tags ?? [])))
   const allRestaurants = Array.from(new Set(allItems.map((i) => i.restaurantName)))
@@ -46,10 +46,10 @@ export default function FilterModal({ open, onClose, onApply, initial, allItems 
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center">
+    <div className="fixed inset-0 z-100 flex items-start p-4 md:items-center justify-center">
       <button type="button" aria-label="Close filter" className="absolute inset-0 bg-black/40" onClick={onClose} />
 
-      <div className="relative w-full md:w-3/5 bg-white rounded-t-lg md:rounded-lg p-4 md:p-6 max-h-[80vh] overflow-auto">
+      <div className="relative w-full md:w-3/5 bg-white rounded-t-lg md:rounded-lg p-4 md:p-6 max-h-[60vh] overflow-auto">
         <h3 className="text-lg font-semibold mb-3">Filter items</h3>
 
         <div className="space-y-4">

@@ -1,9 +1,9 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
-import { ListFilter, SlidersHorizontal } from "lucide-react";
-import useFilterSort, { Filters } from "./useFilterSort";
+import { SlidersHorizontal } from "lucide-react";
+import useFilterSort, { Filters } from "../../hooks/useFilterSort";
 import FilterModal from "./FilterModal";
-import SortModal from "./SortModal";
+import SortDropdown from "@/components/home/SortDropdown";
 
 type HookShape = ReturnType<typeof useFilterSort>
 
@@ -12,7 +12,7 @@ type Props = {
 }
 
 const MenuFilter = ({ hook }: Props) => {
-  const { filterOpen, setFilterOpen, sortOpen, setSortOpen, filters, sort, setSort, applyFilters, allItems } = hook
+  const { filterOpen, setFilterOpen, filters, sort, setSort, applyFilters, allItems } = hook
 
   return (
     <div>
@@ -23,14 +23,8 @@ const MenuFilter = ({ hook }: Props) => {
         allItems={allItems}
         initial={filters}
       />
-      <SortModal
-        open={sortOpen}
-        onClose={() => setSortOpen(false)}
-        value={sort}
-        onChange={(v) => { setSort(v); setSortOpen(false); }}
-      />
 
-      <div className="flex gap-2 pt-2">
+      <div className="flex gap-2 pt-2 items-center">
         <Badge
           onClick={() => setFilterOpen(true)}
           variant={"outline"}
@@ -38,13 +32,8 @@ const MenuFilter = ({ hook }: Props) => {
         >
           <SlidersHorizontal /> Filter
         </Badge>
-        <Badge
-          onClick={() => setSortOpen(true)}
-          variant={"outline"}
-          className="text-sm cursor-pointer active:bg-[#379570]/70 active:text-white transition-colors flex items-center gap-1"
-        >
-          <ListFilter /> Sort
-        </Badge>
+
+        <SortDropdown value={sort} onChange={(v) => setSort(v)} />
       </div>
     </div>
   )

@@ -2,7 +2,7 @@
 
 import React from "react"
 import { FoodItem } from "@/types/mockType"
-import type { SortOption } from "./SortModal"
+import type { SortOption } from "../components/menu/SortModal"
 
 export type Filters = {
   minPrice?: number
