@@ -3,13 +3,15 @@
 import CartItem from '@/components/cart/CartItem'
 import CartSummary from '@/components/cart/CartSummary'
 import { useCartStore } from '@/store/useCartStore'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Page() {
   const items = useCartStore((s) => s.items)
+  const [wHeight, setWHeight] = useState(0);
   useEffect(()=>{
 
     const wHeight = window.innerHeight;
+    setWHeight(wHeight);
   },[])
   return (
     <div className="p-4 md:p-8   "  style={{ height: `${wHeight}px` }}>
