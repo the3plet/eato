@@ -1,7 +1,7 @@
 "use client";
 import { Hamburger, Heart, Home, ShoppingBag, User } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
 import { useCartStore } from "@/store/useCartStore";
 
@@ -11,6 +11,7 @@ const Navmenu = (props: Props) => {
   const [activeTab, setActiveTab] = useState("home");
   const {items} = useCartStore()
   const router = useRouter();
+  const pathname = usePathname();
 
   const navItems = [
     {
@@ -38,6 +39,14 @@ const Navmenu = (props: Props) => {
       link: "/login",
     },
   ];
+
+  useEffect(()=>{
+console.log(pathname)
+    const currentItem = navItems.find(item=>item.link===pathname)
+    if(currentItem){
+      setActiveTab(currentItem.id)
+    }
+  },[pathname])
   return (
     <nav
       className="fixed bottom-1 mx-4 left-0 right-0 bg-white border-2 border-[#EBF4F1] px-6 py-1 shadow-lg z-50 rounded-2xl md:hidden"
