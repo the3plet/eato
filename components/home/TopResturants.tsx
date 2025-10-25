@@ -46,9 +46,9 @@ const TopRestaurants = () => {
                     <Image
                       src={burger}
                       alt={restaurant.name}
-                      width={10}
-                      height={10}
-                      className="object-fill w-4/4 h-fit rounded-md"
+                      width={100}
+                      height={100}
+                      className="object-contain w-4/4 h-fit rounded-md"
                     />
                   </div>
                   <div className="flex flex-col justify-center py-3 w-full">

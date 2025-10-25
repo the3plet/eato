@@ -1,27 +1,25 @@
-'use client'
-import {foodItems} from '@/data/mockData'
-import { FoodItem } from '@/types/mockType'
-import { useEffect, useState } from 'react'
+"use client";
+import { foodItems } from "@/data/mockData";
+import { FoodItem } from "@/types/mockType";
+import { useEffect, useState } from "react";
 
 function useSearch(input: string) {
-  const [results, setResults] = useState<FoodItem[]>([])
+  const [results, setResults] = useState<FoodItem[]>([]);
 
   useEffect(() => {
     if (!input) {
-      setResults([])
-      return
+      setResults([]);
+      return;
     }
 
-    const filtered = foodItems.filter(item =>
+    const filtered = foodItems.filter((item) =>
       item.name.toLowerCase().includes(input.toLowerCase())
-    )
+    );
 
-        setResults(filtered)
-  }, [input])
+    setResults(filtered);
+  }, [input]);
 
-  return results
-  
+  return results;
 }
 
-
-export default useSearch
+export default useSearch;

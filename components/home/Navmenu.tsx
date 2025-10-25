@@ -36,7 +36,7 @@ const Navmenu = (props: Props) => {
       id: "profile",
       label: "Profile",
       icon: User,
-      link: "/login",
+      link: "/profile",
     },
   ];
 

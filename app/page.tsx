@@ -7,17 +7,16 @@ import Recommended from "@/components/home/Recommended";
 import Searchbar from "@/components/home/Searchbar";
 import TopResturants from "@/components/home/TopResturants";
 
-
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#ffffff] font-sans dark:bg-black">
-     <Header/>
-     <Searchbar/>
-     <Banner/>
-     <Categories/>
-     <TopResturants/>
-     <Recommended/>
-     <Faq/>
+      <Header />
+      <Searchbar />
+      <Banner />
+      <Categories />
+      <TopResturants />
+      <Recommended />
+      <Faq />
     </div>
   );
 }

@@ -11,7 +11,7 @@ export const users: User[] = [
     id: "u1",
     username: "JohnDoe",
     email: "john@example.com",
-    password: "password123",
+    password: "1234",
     profilePic: "https://randomuser.me/api/portraits/men/32.jpg",
     defaultAddress: "123 Main Street, Cityville",
   },
@@ -133,7 +133,7 @@ export const currentUser: CurrentUser = {
   id: "u1",
   username: "JohnDoe",
   email: "john@example.com",
-  password: "password123",
+  password: "1234",
   profilePic: "https://randomuser.me/api/portraits/men/32.jpg",
   defaultAddress: "Puthiyara, Kozhikode",
 };

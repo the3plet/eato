@@ -28,7 +28,7 @@ const MenuFilter = ({ hook }: Props) => {
         <Badge
           onClick={() => setFilterOpen(true)}
           variant={"outline"}
-          className="text-sm cursor-pointer active:bg-[#379570]/70 active:text-white transition-colors flex items-center gap-1"
+          className="text-sm cursor-pointer active:bg-[#379570]/70 active:text-white transition-colors flex items-center gap-1 h-10 rounded-lg"
         >
           <SlidersHorizontal /> Filter
         </Badge>

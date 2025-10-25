@@ -16,16 +16,11 @@ type Props = {};
 
 const Searchbar = (props: Props) => {
   const [input, setInput] = useState<string>("");
-  const [debouncedInput, setDebouncedInput] = useState<string>(input);  
-  const filteredData = useSearch(debouncedInput);
+  // const [debouncedInput, setDebouncedInput] = useState<string>(input);  
+  const filteredData = useSearch(input);
   const [model, setModel] = useState<boolean>(false);
 
-useEffect(() => {
-    setTimeout(() => {
-      setDebouncedInput(input);
-    }, 3000);
 
-  }, [input]);
 
   useEffect(() => {
     if (filteredData.length > 0) {
@@ -41,13 +36,15 @@ useEffect(() => {
       <Input
         type="text"
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={(e) => {
+          setInput(e.target.value)
+        }}
         placeholder="Search your food"
         className="pl-10 w-full h-10 bg-[#f4f6f5] border-none rounded-md text-foreground placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:outline-none"
       />
       <Dialog open={model} onOpenChange={setModel}>
-        <DialogContent className="p-4 my-2 border-0">
-          <DialogTitle>Search Results</DialogTitle>
+        <DialogContent className="p-4 my-2 border-0 bg-slate-100">
+          <DialogTitle className="pb-1">Search Results</DialogTitle>
           {filteredData && (
             <FoodItemCard foodItems={filteredData} sliceNo={2} />
           )}
