@@ -1,6 +1,4 @@
-// ===================
-// User Type
-// ===================
+
 export interface User {
   id: string;
   username: string;
@@ -10,18 +8,14 @@ export interface User {
   defaultAddress: string;
 }
 
-// ===================
-// Food Category Type
-// ===================
+
 export interface FoodCategory {
   id: string;
   name: string;
   image: string;
 }
 
-// ===================
-// Restaurant Type
-// ===================
+
 export interface Restaurant {
   id: string;
   name: string;
@@ -31,17 +25,12 @@ export interface Restaurant {
   image: string;
 }
 
-// ===================
-// Review Type
-// ===================
 export interface Review {
-  count: number; // number of reviews
-  star: number;  // average rating
+  count: number; 
+  star: number;  
 }
 
-// ===================
-// Food Item Type
-// ===================
+
 export interface FoodItem {
   id: string;
   name: string;
@@ -51,9 +40,8 @@ export interface FoodItem {
   review: Review;
   deliveryTime: string;
   image: string;
+  tags?: string[]; 
 }
 
-// ===================
-// Optional Current User Type (could reuse User)
-// ===================
+
 export type CurrentUser = User;

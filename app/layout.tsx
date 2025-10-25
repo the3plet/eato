@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navmenu from "@/components/home/Navmenu";
+import Footer from "@/components/home/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,8 +29,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      ><Toaster position="top-center" richColors theme="light"/>
+        {/* Reserve bottom space on small screens so fixed bottom nav doesn't cover the footer */}
+        <main className="min-h-screen pb-16 md:pb-0">{children}
+          <Footer />
+        </main>
+
+        <Navmenu />
       </body>
     </html>
   );

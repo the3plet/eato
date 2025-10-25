@@ -1,8 +1,6 @@
 import { User, FoodCategory, Restaurant, FoodItem, CurrentUser } from "@/types/mockType";
 
-// ===================
-// Users
-// ===================
+
 export const users: User[] = [
   {
     id: "u1",
@@ -22,20 +20,43 @@ export const users: User[] = [
   },
 ];
 
-// ===================
-// Food Categories
-// ===================
-export const foodCategories: FoodCategory[] = [
-  { id: "c1", name: "Pizza", image: "https://source.unsplash.com/80x80/?pizza" },
-  { id: "c2", name: "Burger", image: "https://source.unsplash.com/80x80/?burger" },
-  { id: "c3", name: "Sushi", image: "https://source.unsplash.com/80x80/?sushi" },
-  { id: "c4", name: "Desserts", image: "https://source.unsplash.com/80x80/?dessert" },
-  { id: "c5", name: "Drinks", image: "https://source.unsplash.com/80x80/?drink" },
+
+export const foodCategories = [
+  {
+    id: "c1",
+    name: "Pizza",
+    image:
+      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "c2",
+    name: "Burger",
+    image:
+      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: "c3",
+    name: "Sushi",
+    image:
+      "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+  id: "c4",
+  name: "Desserts",
+  image:
+    "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&q=80",
+},
+
+{
+  id: "c5",
+  name: "Drinks",
+  image:
+    "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&q=80",
+}
 ];
 
-// ===================
-// Top Restaurants
-// ===================
+
+
 export const topRestaurants: Restaurant[] = [
   {
     id: "r1",
@@ -63,9 +84,7 @@ export const topRestaurants: Restaurant[] = [
   },
 ];
 
-// ===================
-// Trending Food Items
-// ===================
+
 export const trendingFoodItems: FoodItem[] = [
   {
     id: "f1",
@@ -109,14 +128,346 @@ export const trendingFoodItems: FoodItem[] = [
   },
 ];
 
-// ===================
-// Current Logged-in User
-// ===================
+
 export const currentUser: CurrentUser = {
   id: "u1",
   username: "JohnDoe",
   email: "john@example.com",
   password: "password123",
   profilePic: "https://randomuser.me/api/portraits/men/32.jpg",
-  defaultAddress: "123 Main Street, Cityville",
+  defaultAddress: "Puthiyara, Kozhikode",
 };
+
+export const foodItems: FoodItem[]  =[
+  {
+    id: "f1",
+    name: "Chicken Biryani",
+    restaurantName: "Spice Villa",
+    price: 180,
+    deliveryFree: true,
+    review: { count: 124, star: 4.6 },
+    deliveryTime: "30-40 mins",
+    image: "https://foodish-api.com/images/biryani/biryani81.jpg",
+    tags: ["biryani", "indian", "non-veg"],
+  },
+  {
+    id: "f2",
+    name: "Mutton Biryani",
+    restaurantName: "Spice Villa",
+    price: 220,
+    deliveryFree: false,
+    review: { count: 98, star: 4.7 },
+    deliveryTime: "35-45 mins",
+    image: "https://foodish-api.com/images/biryani/biryani34.jpg",
+    tags: ["biryani", "indian", "non-veg"],
+  },
+  {
+    id: "f3",
+    name: "Veg Biryani",
+    restaurantName: "Spice Villa",
+    price: 150,
+    deliveryFree: true,
+    review: { count: 76, star: 4.3 },
+    deliveryTime: "25-35 mins",
+    image: "https://foodish-api.com/images/biryani/biryani12.jpg",
+    tags: ["biryani", "indian", "vegetarian"],
+  },
+  {
+    id: "f4",
+    name: "Cheese Burger",
+    restaurantName: "Burger Hub",
+    price: 120,
+    deliveryFree: true,
+    review: { count: 204, star: 4.5 },
+    deliveryTime: "20-30 mins",
+    image: "https://foodish-api.com/images/burger/burger87.jpg",
+    tags: ["burger", "american", "fast food"],
+  },
+  {
+    id: "f5",
+    name: "Double Patty Burger",
+    restaurantName: "Burger Hub",
+    price: 160,
+    deliveryFree: false,
+    review: { count: 132, star: 4.4 },
+    deliveryTime: "25-35 mins",
+    image: "https://foodish-api.com/images/burger/burger45.jpg",
+    tags: ["burger", "american", "fast food"],
+  },
+  {
+    id: "f6",
+    name: "Butter Chicken",
+    restaurantName: "Punjabi Dhaba",
+    price: 210,
+    deliveryFree: false,
+    review: { count: 189, star: 4.8 },
+    deliveryTime: "30-40 mins",
+    image: "https://foodish-api.com/images/butter-chicken/butter-chicken22.jpg",
+    tags: ["north indian", "non-veg", "butter chicken"],
+  },
+  {
+    id: "f7",
+    name: "Butter Chicken Combo",
+    restaurantName: "Punjabi Dhaba",
+    price: 280,
+    deliveryFree: false,
+    review: { count: 95, star: 4.7 },
+    deliveryTime: "35-45 mins",
+    image: "https://foodish-api.com/images/butter-chicken/butter-chicken64.jpg",
+    tags: ["north indian", "combo", "non-veg"],
+  },
+  {
+    id: "f8",
+    name: "Chocolate Cake",
+    restaurantName: "Dessert Delight",
+    price: 160,
+    deliveryFree: true,
+    review: { count: 145, star: 4.9 },
+    deliveryTime: "20-25 mins",
+    image: "https://foodish-api.com/images/dessert/dessert36.jpg",
+    tags: ["dessert", "cake", "sweet"],
+  },
+  {
+    id: "f9",
+    name: "Strawberry Cake",
+    restaurantName: "Dessert Delight",
+    price: 140,
+    deliveryFree: true,
+    review: { count: 103, star: 4.7 },
+    deliveryTime: "20-25 mins",
+    image: "https://foodish-api.com/images/dessert/dessert22.jpg",
+    tags: ["dessert", "cake", "sweet"],
+  },
+  {
+    id: "f10",
+    name: "Masala Dosa",
+    restaurantName: "South Treat",
+    price: 90,
+    deliveryFree: true,
+    review: { count: 211, star: 4.6 },
+    deliveryTime: "20-30 mins",
+    image: "https://foodish-api.com/images/dosa/dosa83.jpg",
+    tags: ["south indian", "dosa", "vegetarian"],
+  },
+  {
+    id: "f11",
+    name: "Paneer Dosa",
+    restaurantName: "South Treat",
+    price: 120,
+    deliveryFree: false,
+    review: { count: 95, star: 4.4 },
+    deliveryTime: "25-35 mins",
+    image: "https://foodish-api.com/images/dosa/dosa45.jpg",
+    tags: ["south indian", "paneer", "vegetarian"],
+  },
+  {
+    id: "f12",
+    name: "Ghee Roast Dosa",
+    restaurantName: "South Treat",
+    price: 110,
+    deliveryFree: true,
+    review: { count: 78, star: 4.5 },
+    deliveryTime: "20-30 mins",
+    image: "https://foodish-api.com/images/dosa/dosa62.jpg",
+    tags: ["south indian", "dosa", "vegetarian"],
+  },
+  {
+    id: "f13",
+    name: "Idly with Chutney",
+    restaurantName: "Breakfast Corner",
+    price: 60,
+    deliveryFree: true,
+    review: { count: 133, star: 4.3 },
+    deliveryTime: "15-20 mins",
+    image: "https://foodish-api.com/images/idly/idly77.jpg",
+    tags: ["south indian", "breakfast", "idly"],
+  },
+  {
+    id: "f14",
+    name: "Fried Idly",
+    restaurantName: "Breakfast Corner",
+    price: 70,
+    deliveryFree: true,
+    review: { count: 89, star: 4.2 },
+    deliveryTime: "15-20 mins",
+    image: "https://foodish-api.com/images/idly/idly35.jpg",
+    tags: ["south indian", "breakfast", "idly"],
+  },
+  {
+    id: "f15",
+    name: "Pasta Alfredo",
+    restaurantName: "Italiano Cafe",
+    price: 190,
+    deliveryFree: false,
+    review: { count: 160, star: 4.5 },
+    deliveryTime: "25-35 mins",
+    image: "https://foodish-api.com/images/pasta/pasta34.jpg",
+    tags: ["pasta", "italian", "creamy"],
+  },
+  {
+    id: "f16",
+    name: "Pasta Arrabbiata",
+    restaurantName: "Italiano Cafe",
+    price: 170,
+    deliveryFree: true,
+    review: { count: 99, star: 4.3 },
+    deliveryTime: "25-35 mins",
+    image: "https://foodish-api.com/images/pasta/pasta12.jpg",
+    tags: ["pasta", "italian", "spicy"],
+  },
+  {
+    id: "f17",
+    name: "Margherita Pizza",
+    restaurantName: "Pizza Mania",
+    price: 200,
+    deliveryFree: false,
+    review: { count: 145, star: 4.5 },
+    deliveryTime: "30-40 mins",
+    image: "https://foodish-api.com/images/pizza/pizza95.jpg",
+    tags: ["pizza", "italian", "vegetarian"],
+  },
+  {
+    id: "f18",
+    name: "Pepperoni Pizza",
+    restaurantName: "Pizza Mania",
+    price: 240,
+    deliveryFree: false,
+    review: { count: 175, star: 4.6 },
+    deliveryTime: "30-40 mins",
+    image: "https://foodish-api.com/images/pizza/pizza34.jpg",
+    tags: ["pizza", "italian", "non-veg"],
+  },
+  {
+    id: "f19",
+    name: "Veg Supreme Pizza",
+    restaurantName: "Pizza Mania",
+    price: 210,
+    deliveryFree: true,
+    review: { count: 132, star: 4.4 },
+    deliveryTime: "25-35 mins",
+    image: "https://foodish-api.com/images/pizza/pizza15.jpg",
+    tags: ["pizza", "italian", "vegetarian"],
+  },
+  {
+    id: "f20",
+    name: "Fried Rice",
+    restaurantName: "China Town",
+    price: 130,
+    deliveryFree: true,
+    review: { count: 160, star: 4.5 },
+    deliveryTime: "20-30 mins",
+    image: "https://foodish-api.com/images/rice/rice35.jpg",
+    tags: ["chinese", "rice", "vegetarian"],
+  },
+  {
+    id: "f21",
+    name: "Egg Fried Rice",
+    restaurantName: "China Town",
+    price: 140,
+    deliveryFree: false,
+    review: { count: 108, star: 4.4 },
+    deliveryTime: "20-30 mins",
+    image: "https://foodish-api.com/images/rice/rice22.jpg",
+    tags: ["chinese", "rice", "non-veg"],
+  },
+  {
+    id: "f22",
+    name: "Schezwan Fried Rice",
+    restaurantName: "China Town",
+    price: 150,
+    deliveryFree: true,
+    review: { count: 189, star: 4.7 },
+    deliveryTime: "25-35 mins",
+    image: "https://foodish-api.com/images/rice/rice18.jpg",
+    tags: ["chinese", "spicy", "rice"],
+  },
+  {
+    id: "f23",
+    name: "Samosa Chaat",
+    restaurantName: "Street Tadka",
+    price: 80,
+    deliveryFree: true,
+    review: { count: 102, star: 4.2 },
+    deliveryTime: "15-25 mins",
+    image: "https://foodish-api.com/images/samosa/samosa22.jpg",
+    tags: ["street food", "indian", "vegetarian"],
+  },
+  {
+    id: "f24",
+    name: "Punjabi Samosa",
+    restaurantName: "Street Tadka",
+    price: 60,
+    deliveryFree: true,
+    review: { count: 143, star: 4.3 },
+    deliveryTime: "15-20 mins",
+    image: "https://foodish-api.com/images/samosa/samosa34.jpg",
+    tags: ["street food", "snack", "vegetarian"],
+  },
+  {
+    id: "f25",
+    name: "Cheese Burst Samosa",
+    restaurantName: "Street Tadka",
+    price: 90,
+    deliveryFree: false,
+    review: { count: 67, star: 4.1 },
+    deliveryTime: "20-25 mins",
+    image: "https://foodish-api.com/images/samosa/samosa41.jpg",
+    tags: ["street food", "cheese", "snack"],
+  },
+  {
+    id: "f26",
+    name: "Paneer Butter Masala",
+    restaurantName: "Punjabi Dhaba",
+    price: 190,
+    deliveryFree: false,
+    review: { count: 177, star: 4.6 },
+    deliveryTime: "30-40 mins",
+    image: "https://foodish-api.com/images/butter-chicken/butter-chicken41.jpg",
+    tags: ["north indian", "paneer", "vegetarian"],
+  },
+  {
+    id: "f27",
+    name: "Chicken Tikka Pizza",
+    restaurantName: "Pizza Mania",
+    price: 250,
+    deliveryFree: false,
+    review: { count: 163, star: 4.5 },
+    deliveryTime: "30-40 mins",
+    image: "https://foodish-api.com/images/pizza/pizza45.jpg",
+    tags: ["pizza", "fusion", "non-veg"],
+  },
+  {
+    id: "f28",
+    name: "Paneer Fried Rice",
+    restaurantName: "China Town",
+    price: 160,
+    deliveryFree: false,
+    review: { count: 97, star: 4.3 },
+    deliveryTime: "25-35 mins",
+    image: "https://foodish-api.com/images/rice/rice44.jpg",
+    tags: ["chinese", "paneer", "vegetarian"],
+  },
+  {
+    id: "f29",
+    name: "Butter Dosa",
+    restaurantName: "South Treat",
+    price: 100,
+    deliveryFree: true,
+    review: { count: 120, star: 4.5 },
+    deliveryTime: "20-30 mins",
+    image: "https://foodish-api.com/images/dosa/dosa72.jpg",
+    tags: ["south indian", "dosa", "vegetarian"],
+  },
+  {
+    id: "f30",
+    name: "Mini Idly Sambar",
+    restaurantName: "Breakfast Corner",
+    price: 65,
+    deliveryFree: true,
+    review: { count: 111, star: 4.4 },
+    deliveryTime: "15-20 mins",
+    image: "https://foodish-api.com/images/idly/idly41.jpg",
+    tags: ["south indian", "breakfast", "idly"],
+  },
+];
+
