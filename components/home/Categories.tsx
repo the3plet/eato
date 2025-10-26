@@ -1,12 +1,16 @@
-'use client'
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import { foodCategories } from "@/data/mockData"
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel"
+import * as React from "react";
+import Image from "next/image";
+import { foodCategories } from "@/data/mockData";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import { useGlobalStore } from "@/store/useGlobalState";
+import { Badge } from "../ui/badge";
+import { X } from "lucide-react";
 
 const Categories = () => {
-  const [selectedId, setSelectedId] = React.useState<string | undefined>()
+  const [selectedId, setSelectedId] = React.useState<string | undefined>();
+  const { setCategory } = useGlobalStore();
 
   return (
     <div className="w-full max-w-full px-4 rounded-full">
@@ -21,7 +25,10 @@ const Categories = () => {
           {foodCategories.map((category) => (
             <CarouselItem key={category.id} className="basis-auto pl-2">
               <button
-                onClick={() => setSelectedId(category.id)}
+                onClick={() => {
+                  setSelectedId(category.id);
+                  setCategory(category.name);
+                }}
                 className={`flex items-center justify-center gap-2 px-2 pr-4 py-1 rounded-full whitespace-nowrap transition-colors lg:gap-3 lg:px-4 lg:pr-6 lg:py-2 ${
                   selectedId === category.id
                     ? "bg-[#329570] text-white"
@@ -35,14 +42,35 @@ const Categories = () => {
                   height={32}
                   className="rounded-full object-cover w-8 h-8 lg:w-12 lg:h-12"
                 />
-                <span className={`text-sm font-medium text-[#05140A] lg:text-base ${selectedId === category.id ? "text-white" : "text-foreground"}`}>{category.name}</span>
+                <span
+                  className={`text-sm font-medium text-[#05140A] lg:text-base ${
+                    selectedId === category.id
+                      ? "text-white"
+                      : "text-foreground"
+                  }`}
+                >
+                  {category.name}
+                </span>
               </button>
             </CarouselItem>
           ))}
+          <Badge
+            className={`px-4 ml-2  ${
+              selectedId === "clear"
+                ? "bg-slate-800"
+                : "bg-[#EBF4F1] text-black"
+            }`}
+            onClick={() => {
+              setSelectedId("clear");
+              setCategory("all");
+            }}
+          >
+            Clear <X />
+          </Badge>
         </CarouselContent>
       </Carousel>
     </div>
-  )
-}
+  );
+};
 
-export default Categories
+export default Categories;

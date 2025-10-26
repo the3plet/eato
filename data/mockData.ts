@@ -46,14 +46,14 @@ export const foodCategories = [
   },
   {
     id: "c4",
-    name: "Desserts",
+    name: "Biryani",
     image:
       "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&q=80",
   },
 
   {
     id: "c5",
-    name: "Drinks",
+    name: "Cake",
     image:
       "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&q=80",
   },
@@ -62,7 +62,7 @@ export const foodCategories = [
 export const topRestaurants: Restaurant[] = [
   {
     id: "r1",
-    name: "Pizza Palace",
+    name: "Burger Hub",
     location: "Downtown",
     travelTime: "15 mins",
     rating: 4.5,
@@ -70,7 +70,7 @@ export const topRestaurants: Restaurant[] = [
   },
   {
     id: "r2",
-    name: "Burger Hub",
+    name: "Dessert Delight",
     location: "City Center",
     travelTime: "10 mins",
     rating: 4.2,
@@ -78,7 +78,7 @@ export const topRestaurants: Restaurant[] = [
   },
   {
     id: "r3",
-    name: "Sushi World",
+    name: "Italiano Cafe",
     location: "Riverside",
     travelTime: "20 mins",
     rating: 4.8,
@@ -97,7 +97,7 @@ export const trendingFoodItems: FoodItem[] = [
     deliveryFree: true,
     review: { count: 124, star: 4.5 },
     deliveryTime: "30-40 mins",
-    image: "https://cdn.dotpe.in/longtail/store-items/8579865/AJgCnKEp.webp",
+    image: "https://cdn.dotpe.in/longtail/store-items/8579865/AJgCnKEp.webp",tags: ['pizza','all'],
   },
   {
     id: "f2",
@@ -106,7 +106,7 @@ export const trendingFoodItems: FoodItem[] = [
     price: 6.99,
     deliveryFree: false,
     review: { count: 98, star: 4.2 },
-    deliveryTime: "20-30 mins",
+    deliveryTime: "20-30 mins",tags: ['burger','all'],
     image: "https://www.sargento.com/assets/Uploads/Recipe/Image/cheddarbaconcheeseburger__FocusFillWyIwLjAwIiwiMC4wMCIsODAwLDQ3OF0_CompressedW10.jpg",
   },
   {
@@ -116,7 +116,7 @@ export const trendingFoodItems: FoodItem[] = [
     price: 12.99,
     deliveryFree: true,
     review: { count: 76, star: 4.8 },
-    deliveryTime: "25-35 mins",
+    deliveryTime: "25-35 mins",tags: ['sushi','all'],
     image: "https://sudachirecipes.com/wp-content/uploads/2024/09/ebikyu-maki-thumb.png",
   },
   {
@@ -125,7 +125,7 @@ export const trendingFoodItems: FoodItem[] = [
     restaurantName: "Dessert Delight",
     price: 5.99,
     deliveryFree: true,
-    review: { count: 142, star: 4.7 },
+    review: { count: 142, star: 4.7 },tags: ['cake','all'],
     deliveryTime: "15-25 mins",
     image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTkHC9i9S9p4xEsSQNlFYxoWX-2UJ2IIz787oJoRDxyq62vinlBSV5pK7B7QiPHw89Zi1R6KESIYHKg8KEWXOA3tbHbAvXxb3e6j1GNn4po",
   },
@@ -359,7 +359,7 @@ export const foodItems: FoodItem[] = [
     review: { count: 160, star: 4.5 },
     deliveryTime: "20-30 mins",
     image: "https://foodish-api.com/images/rice/rice35.jpg",
-    tags: ["biryani"],
+    tags: ["rice"],
   },
   {
     id: "f21",
@@ -370,7 +370,7 @@ export const foodItems: FoodItem[] = [
     review: { count: 108, star: 4.4 },
     deliveryTime: "20-30 mins",
     image: "https://foodish-api.com/images/rice/rice22.jpg",
-    tags: ["biryani"],
+    tags: ["rice"],
   },
   {
     id: "f22",
@@ -381,7 +381,7 @@ export const foodItems: FoodItem[] = [
     review: { count: 189, star: 4.7 },
     deliveryTime: "25-35 mins",
     image: "https://foodish-api.com/images/rice/rice18.jpg",
-    tags: ["biryani"],
+    tags: ["rice"],
   },
   {
     id: "f23",
@@ -447,7 +447,7 @@ export const foodItems: FoodItem[] = [
     review: { count: 97, star: 4.3 },
     deliveryTime: "25-35 mins",
     image: "https://foodish-api.com/images/rice/rice44.jpg",
-    tags: ["biryani"],
+    tags: ["rice"],
   },
   {
     id: "f29",

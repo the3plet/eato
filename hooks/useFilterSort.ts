@@ -3,6 +3,7 @@
 import React from "react"
 import { FoodItem } from "@/types/mockType"
 import type { SortOption } from "../components/menu/SortModal"
+import { useGlobalStore } from "@/store/useGlobalState"
 
 export type Filters = {
   minPrice?: number
@@ -18,6 +19,8 @@ export default function useFilterSort(allItems: FoodItem[]) {
   const [filters, setFilters] = React.useState<Filters>({ tags: [], restaurants: [] })
   const [sort, setSort] = React.useState<SortOption>(null)
 
+  const {restaurant:newRestaurant} =useGlobalStore()
+
   const applyFilters = React.useCallback((f: Partial<Filters>) => {
     setFilters((prev) => ({ ...prev, ...(f as Filters) }))
   }, [])
@@ -28,7 +31,7 @@ export default function useFilterSort(allItems: FoodItem[]) {
     if (filters.minPrice != null) items = items.filter((i) => i.price >= (filters.minPrice ?? 0))
     if (filters.maxPrice != null) items = items.filter((i) => i.price <= (filters.maxPrice ?? Infinity))
     if (filters.tags?.length) items = items.filter((i) => (i.tags ?? []).some((t) => filters.tags.includes(t)))
-    if (filters.restaurants?.length) items = items.filter((i) => filters.restaurants.includes(i.restaurantName))
+    if (filters.restaurants?.length || newRestaurant.length) items = items.filter((i) => filters.restaurants.includes(i.restaurantName) || newRestaurant.includes(i.restaurantName))
 
     if (sort === "price-asc") items.sort((a, b) => a.price - b.price)
     else if (sort === "price-desc") items.sort((a, b) => b.price - a.price)

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import logo from "@/public/logo.png";
-import { ChevronDown, MapPin, Truck } from "lucide-react";
+import {  Truck } from "lucide-react";
 import { currentUser } from "@/data/mockData";
 import Link from "next/link";
 import { useEffect, useState } from "react";

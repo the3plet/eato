@@ -21,16 +21,16 @@ export default function Banner() {
         <CarouselContent className="w-full">
           {slides.map((src, idx) => (
             <CarouselItem key={idx} className="w-full">
-              <div className="w-full h-44 sm:h-56 md:h-64 lg:h-72 relative">
+              <div className="w-full h-44 sm:h-56 md:h-64 lg:h-72 relative ">
                 <Image
                   src={src}
                   alt={`Banner ${idx + 1}`}
                   fill
                   sizes="(max-width: 640px) 100vw, 50vw"
-                  className="object-contain"
+                  className="object-fill"
                   placeholder="blur"
                   blurDataURL={smallBase64}
-                  priority={idx === 0} // first slide top-priority
+                  priority={idx === 0}
                 />
               </div>
             </CarouselItem>

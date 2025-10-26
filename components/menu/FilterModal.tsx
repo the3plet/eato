@@ -4,6 +4,7 @@ import React from "react"
 import { FoodItem } from "@/types/mockType"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { useGlobalStore } from "@/store/useGlobalState"
 
 type Filters = {
   minPrice?: number
@@ -25,6 +26,8 @@ export default function FilterModal({ open, onClose, onApply, initial, allItems 
   const [maxPrice, setMaxPrice] = React.useState<number | undefined>(initial?.maxPrice)
   const [tags, setTags] = React.useState<string[]>(initial?.tags ?? [])
   const [restaurants, setRestaurants] = React.useState<string[]>(initial?.restaurants ?? [])
+
+  const { restaurant: newRestaurant, setRestaurant: setNewRestaurant } = useGlobalStore()
 
   React.useEffect(() => {
     if (!open && initial) {
@@ -85,7 +88,7 @@ export default function FilterModal({ open, onClose, onApply, initial, allItems 
               {allRestaurants.map((r) => (
                 <Button
                   key={r}
-                  variant={restaurants.includes(r) ? "default" : "outline"}
+                  variant={(restaurants.includes(r) || newRestaurant === r) ? "default" : "outline"}
                   size="sm"
                   onClick={() => toggle(restaurants, setRestaurants, r)}
                   className="px-3"
@@ -97,7 +100,7 @@ export default function FilterModal({ open, onClose, onApply, initial, allItems 
           </fieldset>
 
           <div className="flex justify-between mt-4">
-            <Button variant="outline" onClick={() => { setMinPrice(undefined); setMaxPrice(undefined); setTags([]); setRestaurants([]); }}>
+            <Button variant="outline" onClick={() => { setMinPrice(undefined); setMaxPrice(undefined); setTags([]); setRestaurants([]); setNewRestaurant('');}}>
               Reset
             </Button>
             <div className="flex gap-2">

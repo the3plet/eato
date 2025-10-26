@@ -10,8 +10,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { topRestaurants } from "@/data/mockData";
 import burger from "@/public/FoodItem/burger.png";
+import { useGlobalStore } from "@/store/useGlobalState";
+import { use } from "react";
+import { useRouter } from "next/navigation";
 
 const TopRestaurants = () => {
+  const {setRestaurant} = useGlobalStore()
+  const router= useRouter()
+
   return (
     <section className="w-full mt-6 px-4">
       {/* Header */}
@@ -26,7 +32,7 @@ const TopRestaurants = () => {
       <Carousel opts={{ align: "start" }} className="w-full">
         <CarouselContent className=" lg:justify-center">
           {topRestaurants.map((restaurant) => (
-            <CarouselItem
+            <CarouselItem onClick={() => {  setRestaurant(restaurant.name); router.push('/menu'); }}
                 key={restaurant.id}
                 className="basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/2 pl-4 lg:pl-6 lg:pr-6 lg:mx-2"
             >
