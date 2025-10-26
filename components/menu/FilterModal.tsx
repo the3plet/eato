@@ -103,7 +103,7 @@ export default function FilterModal({ open, onClose, onApply, initial, allItems 
           </div>
 
           <div className="flex justify-between mt-4">
-            <Button variant="outline" onClick={() => { setMinPrice(undefined); setMaxPrice(undefined); setTags([]); setRestaurants([]); setNewRestaurant('');  onApply({ minPrice:0, maxPrice:Infinity, tags:[], restaurants:'' }); onClose();}}>
+            <Button variant="outline" onClick={() => { setMinPrice(undefined); setMaxPrice(undefined); setTags([]); setRestaurants([]); setNewRestaurant('');  onApply({ minPrice:0, maxPrice:Infinity, tags:[], restaurants:[''] }); onClose();}}>
               Reset
             </Button>
             <div className="flex gap-2">
