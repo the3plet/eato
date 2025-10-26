@@ -29,12 +29,12 @@ const TopRestaurants = () => {
       </div>
 
       {/* Carousel */}
-      <Carousel opts={{ align: "start" }} className="w-full">
-        <CarouselContent className=" lg:justify-center">
+      <Carousel opts={{ align: "start" }} className="w-full ">
+        <CarouselContent className=" lg:justify-center md:flex md:justify-center">
           {topRestaurants.map((restaurant) => (
             <CarouselItem onClick={() => {  setRestaurant(restaurant.name); router.push('/menu'); }}
                 key={restaurant.id}
-                className="basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/2 pl-4 lg:pl-6 lg:pr-6 lg:mx-2"
+                className="basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/2 pl-4 lg:pl-6 lg:pr-6 lg:mx-2 "
             >
               <div
                 className={`rounded-2xl px-3 flex flex-col justify-between h-full transition-transform hover:scale-[1.02] `}

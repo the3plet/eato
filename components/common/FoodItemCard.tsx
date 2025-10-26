@@ -33,8 +33,10 @@ const FoodCard = ({ food }: { food: FoodItem }) => {
   };
 
   return (
-    <div className="flex w-full gap-2 lg:gap-4 rounded-xl border-2 border-[#EBF4F1] bg-card p-2 lg:p-4 shadow-md hover:shadow-lg transition-shadow items-center">
-      <div className="relative w-28 h-28 lg:w-40 lg:h-40 rounded-lg overflow-hidden shrink-0">
+    <div className="md:px-40 lg:px-0">
+
+    <div className="flex w-full  md:w-auto lg:w-full  md:flex-1 gap-2 lg:gap-4 rounded-xl border-2 border-[#EBF4F1] bg-card p-2 lg:p-4 shadow-md hover:shadow-lg transition-shadow items-center">
+      <div className="relative w-28 h-28 lg:w-40 lg:h-40 rounded-lg overflow-hidden shrink-0 ">
         {loading && (
           <div className="w-full h-full flex justify-center items-center">
             <Spinner className="w-5 h-5" />
@@ -100,6 +102,8 @@ const FoodCard = ({ food }: { food: FoodItem }) => {
         </div>
       </div>
     </div>
+        </div>
+
   );
 };
 

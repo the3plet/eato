@@ -21,9 +21,9 @@ const Categories = () => {
         }}
         className="w-full"
       >
-        <CarouselContent className="-ml-2 lg:flex lg:justify-center">
+        <CarouselContent className="-ml-2 lg:flex lg:justify-center md:flex md:justify-center">
           {foodCategories.map((category) => (
-            <CarouselItem key={category.id} className="basis-auto pl-2">
+            <CarouselItem key={category.id} className="basis-auto pl-2 ">
               <button
                 onClick={() => {
                   setSelectedId(category.id);

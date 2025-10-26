@@ -41,7 +41,7 @@ const Header = (props: Props) => {
       </div>
 
       {/* center nav - visible only on large screens */}
-      <nav className="hidden lg:flex items-center gap-6 absolute left-1/2 transform -translate-x-1/2">
+      <nav className="hidden md:flex items-center gap-6 absolute left-1/2 transform -translate-x-1/2">
         <Link
           href="/"
           className="text-sm lg:text-base font-medium text-muted-foreground hover:text-foreground"
@@ -58,7 +58,7 @@ const Header = (props: Props) => {
           href="/cart"
           className="relative w-auto text-sm lg:text-base font-medium text-muted-foreground hover:text-foreground"
         >
-          <Badge className="absolute top-0 left-15 w-4 h-4 p-0 text-[10px] flex items-center justify-center z-50">
+          <Badge className="absolute top-0 lg:left-15 md:left-13 w-4 h-4 p-0 text-[10px] flex items-center justify-center z-50">
             {items.length}
           </Badge>
           My Cart

@@ -25,7 +25,7 @@ export default function Page() {
             items.map((it) => <CartItem key={it.id} item={it} />)
           )}
         </div>
-<div className="lg:w-full lg:ml-4">
+<div className="lg:w-full md:flex md:justify-center lg:ml-4">
   <CartSummary />
   <CartSummaryLg />
 </div>
