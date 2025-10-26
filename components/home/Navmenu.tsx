@@ -41,7 +41,6 @@ const Navmenu = (props: Props) => {
   ];
 
   useEffect(()=>{
-console.log(pathname)
     const currentItem = navItems.find(item=>item.link===pathname)
     if(currentItem){
       setActiveTab(currentItem.id)
@@ -73,7 +72,7 @@ console.log(pathname)
             >
               {item.id === 'cart' && (
                 <Badge
-                  className="absolute top-0 right-0 w-4 h-4 p-0 text-[10px] flex items-center justify-center z-50"
+                  className="absolute top-0 right-0.5 w-4 h-4 p-0 text-[10px] flex items-center justify-center z-50"
                 >
                   {items.length}
                 </Badge>

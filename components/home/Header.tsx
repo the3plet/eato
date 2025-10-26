@@ -1,30 +1,35 @@
 "use client";
 import Image from "next/image";
 import logo from "@/public/logo.png";
-import {  Truck } from "lucide-react";
+import { Truck } from "lucide-react";
 import { currentUser } from "@/data/mockData";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { User } from "@/types/mockType";
+import { useCartStore } from "@/store/useCartStore";
+import { Badge } from "../ui/badge";
 type Props = {};
 
 const Header = (props: Props) => {
   const router = useRouter();
   const [user, setUser] = useState<User>();
+  const { items } = useCartStore();
 
-useEffect(() => {
+  useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
   }, []);
 
-
   return (
     <div className="w-full h-fit p-2 pt-4 flex justify-between lg:items-center sticky top-0 z-50 bg-white border-b border-gray-200">
       {/* left: logo/title */}
-      <div className="flex items-center gap-0 cursor-pointer" onClick={()=>router.push('/')}>
+      <div
+        className="flex items-center gap-0 cursor-pointer"
+        onClick={() => router.push("/")}
+      >
         <Image
           src={logo}
           alt="Logo"
@@ -51,8 +56,11 @@ useEffect(() => {
         </Link>
         <Link
           href="/cart"
-          className="text-sm lg:text-base font-medium text-muted-foreground hover:text-foreground"
+          className="relative w-auto text-sm lg:text-base font-medium text-muted-foreground hover:text-foreground"
         >
+          <Badge className="absolute top-0 left-15 w-4 h-4 p-0 text-[10px] flex items-center justify-center z-50">
+            {items.length}
+          </Badge>
           My Cart
         </Link>
         <Link
