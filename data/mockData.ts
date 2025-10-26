@@ -227,7 +227,7 @@ export const foodItems: FoodItem[] = [
     review: { count: 145, star: 4.9 },
     deliveryTime: "20-25 mins",
     image: "https://foodish-api.com/images/dessert/dessert36.jpg",
-    tags: ["dessert"],
+    tags: ["cake"],
   },
   {
     id: "f9",
@@ -238,7 +238,7 @@ export const foodItems: FoodItem[] = [
     review: { count: 103, star: 4.7 },
     deliveryTime: "20-25 mins",
     image: "https://foodish-api.com/images/dessert/dessert22.jpg",
-    tags: ["dessert"],
+    tags: ["cake"],
   },
   {
     id: "f10",
