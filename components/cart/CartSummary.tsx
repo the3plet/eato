@@ -15,7 +15,9 @@ export default function CartSummary() {
   const total = subtotal + delivery
 
   return (
-    <div className="w-full md:w-[380px] space-y-4 p-4 pb-20">
+    <>
+    {/* mobile / default summary (kept for small screens) */}
+    <div className="w-full md:w-[380px] space-y-4 p-4 pb-20 lg:hidden">
       {/* <div className="flex items-center gap-2">
         <Input placeholder="Promo Code" className="flex-1" />
         <Button>Apply</Button>
@@ -38,5 +40,9 @@ export default function CartSummary() {
 
       <Button className="w-full" onClick={()=> router.push('/checkout')}>Checkout</Button>
     </div>
+
+    {/* large screen summary - separate component for bigger layout */}
+    
+    </>
   )
 }

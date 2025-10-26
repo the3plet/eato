@@ -83,17 +83,17 @@ export default function CheckoutSummary() {
   }
 
   return (
-    <aside className="w-full md:w-[380px] space-y-4 p-4">
-      <div className="rounded-lg border p-4 bg-white space-y-3">
-  <div className="text-sm text-muted-foreground">Delivery Address</div>
+    <aside className="w-full md:w-[380px] space-y-4 p-4 lg:w-full lg:space-y-6 lg:p-6">
+      <div className="rounded-lg border p-4 lg:p-6 bg-white space-y-3 lg:space-y-4">
+  <div className="text-sm text-muted-foreground lg:text-base">Delivery Address</div>
   <Input placeholder="Full name" value={fullName} onChange={(e) => setFullName((e.target as HTMLInputElement).value)} />
   <Input placeholder="Street, building, apt" value={street} onChange={(e) => setStreet((e.target as HTMLInputElement).value)} />
   <Input placeholder="City" value={city} onChange={(e) => setCity((e.target as HTMLInputElement).value)} />
   <Input placeholder="Phone number" value={phone} onChange={(e) => setPhone((e.target as HTMLInputElement).value)} />
       </div>
 
-      <div className="rounded-lg border p-4 bg-white space-y-3">
-        <div className="text-sm text-muted-foreground">Payment</div>
+      <div className="rounded-lg border p-4 lg:p-6 bg-white space-y-3">
+        <div className="text-sm text-muted-foreground lg:text-base">Payment</div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild >
             <Button ref={triggerRef} variant="outline" className="w-full justify-between">
@@ -111,22 +111,22 @@ export default function CheckoutSummary() {
         </DropdownMenu>
       </div>
 
-      <div className="rounded-lg border p-4 bg-white space-y-3">
-        <div className="flex justify-between text-sm text-muted-foreground">
+      <div className="rounded-lg border p-4 lg:p-6 bg-white space-y-3">
+        <div className="flex justify-between text-sm text-muted-foreground lg:text-base">
           <span>Sub-Total</span>
           <span>₹{subtotal.toFixed(0)}</span>
         </div>
-        <div className="flex justify-between text-sm text-muted-foreground">
+        <div className="flex justify-between text-sm text-muted-foreground lg:text-base">
           <span>Delivery Fee</span>
           <span>₹{delivery}</span>
         </div>
-        <div className="flex justify-between text-base font-semibold mt-2">
+        <div className="flex justify-between text-base font-semibold mt-2 lg:text-lg">
           <span>Total</span>
-          <span>₹{total.toFixed(0)}</span>
+          <span className="lg:text-2xl">₹{total.toFixed(0)}</span>
         </div>
       </div>
 
-      <Button onClick={handlePlaceOrder} className="w-full">
+      <Button onClick={handlePlaceOrder} className="w-full lg:py-3 lg:text-lg">
         Place Order
       </Button>
     </aside>

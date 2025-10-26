@@ -11,9 +11,20 @@ import burger2 from "@/public/FoodItem/image.png";
 import FoodItemCard from "../common/FoodItemCard";
 import { useRouter } from "next/navigation";
 
-
 const Recommended = () => {
   const router = useRouter();
+  const addItem = useCartStore((s) => s.addItem);
+
+  const handleAddToCart = (food: any) => {
+    addItem({
+      id: food.id,
+      name: food.name,
+      price: food.price,
+      image: food.image,
+      quantity: 1,
+    });
+    toast.success(`${food.name} added to cart!`);
+  };
 
   return (
     <section className="w-full mt-8 space-y-4 px-4">
@@ -28,7 +39,8 @@ const Recommended = () => {
           View All
         </button>
       </div>
-      <FoodItemCard foodItems={trendingFoodItems} sliceNo={3}/>
+      <FoodItemCard foodItems={trendingFoodItems} sliceNo={4}/>
+    
     </section>
   );
 };

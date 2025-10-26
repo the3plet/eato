@@ -5,6 +5,7 @@ import { useAuthStore } from '@/store/useAuthStore'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import ProtectedRoute from '@/lib/ProtectedRoute'
+import { Item } from '@radix-ui/react-dropdown-menu'
 
 export default function Page() {
   const user = useAuthStore((s) => s.user)
@@ -65,7 +66,7 @@ export default function Page() {
               <div key={o.id} className="border rounded p-3">
                 <div className="flex justify-between mb-2">
                   <div className="text-sm">{new Date(o.createdAt).toLocaleString()}</div>
-                  <div className="font-semibold">{o.total.toFixed(0)} EGP</div>
+                  <div className="font-semibold">₹{o.total.toFixed(0)}</div>
                 </div>
                 <div className="text-sm text-muted-foreground">{o.items.length} items</div>
               </div>

@@ -24,11 +24,11 @@ const TopRestaurants = () => {
 
       {/* Carousel */}
       <Carousel opts={{ align: "start" }} className="w-full">
-        <CarouselContent className="">
+        <CarouselContent className=" lg:justify-center">
           {topRestaurants.map((restaurant) => (
             <CarouselItem
-              key={restaurant.id}
-              className="basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 pl-4"
+                key={restaurant.id}
+                className="basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/2 pl-4 lg:pl-6 lg:pr-6 lg:mx-2"
             >
               <div
                 className={`rounded-2xl px-3 flex flex-col justify-between h-full transition-transform hover:scale-[1.02] `}
@@ -46,30 +46,30 @@ const TopRestaurants = () => {
                     <Image
                       src={burger}
                       alt={restaurant.name}
-                      width={100}
-                      height={100}
-                      className="object-contain w-4/4 h-fit rounded-md"
+                        width={180}
+                        height={180}
+                        className="object-contain w-4/4 h-fit rounded-md lg:w-40 lg:h-40"
                     />
                   </div>
                   <div className="flex flex-col justify-center py-3 w-full">
                     <div className="flex items-center gap-1 text-white/90 ">
                       <Star className="h-3 w-3 text-yellow-300" />
-                      <span className="text-xs font-medium">
+                        <span className="text-xs font-medium lg:text-sm">
                         {restaurant.rating}
                       </span>
                     </div>
-                    <h3 className="text-white font-semibold text-md leading-tight">
+                      <h3 className="text-white font-semibold text-md leading-tight lg:text-xl">
                       {restaurant.name}
                     </h3>
-                    <p className="text-white/80 text-xs">
+                      <p className="text-white/80 text-xs lg:text-sm">
                       {restaurant.location}
                     </p>
-                    <p className="text-white/80 font-semibold text-xs">
+                      <p className="text-white/80 font-semibold text-xs lg:text-sm">
                       {restaurant.travelTime}
                     </p>
                     <Button
                       variant="secondary"
-                      className=" text-xs font-medium my-1 bg-black text-white/90 hover:bg-white/50 w-fit px-3 h-fit py-1 rounded-2xl"
+                        className=" text-xs font-medium my-1 bg-black text-white/90 hover:bg-white/50 w-fit px-3 h-fit py-1 rounded-2xl lg:px-4 lg:py-2 lg:text-sm"
                     >
                       Check Out
                     </Button>

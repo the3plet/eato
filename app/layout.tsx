@@ -32,12 +32,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Toaster position="top-center" richColors theme="light" />
-        <main className="min-h-screen pb-16 md:pb-0">
+        <main className="min-h-screen pb-16 md:pb-0 lg:px-80">
           {children}
           {/* <Footer /> */}
         </main>
 
         <Navmenu />
+        <Footer />
       </body>
     </html>
   );

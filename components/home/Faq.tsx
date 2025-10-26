@@ -11,12 +11,12 @@ interface AccordionItemProps {
 
 const AccordionItem = ({ question, answer, isOpen, onClick }: AccordionItemProps) => {
   return (
-    <div className="border rounded-lg mb-2 bg-white overflow-hidden">
+    <div className="border rounded-lg mb-2 bg-white overflow-hidden lg:rounded-2xl lg:mb-4">
       <button
         onClick={onClick}
-        className="w-full px-4 py-2 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+        className="w-full px-4 py-2 flex items-center justify-between text-left hover:bg-gray-50 transition-colors lg:px-6 lg:py-4"
       >
-        <span className="text-sm font-medium text-gray-900 pr-4">
+        <span className="text-sm font-medium text-gray-900 pr-4 lg:text-lg">
           {question}
         </span>
         <ChevronDown 
@@ -30,9 +30,9 @@ const AccordionItem = ({ question, answer, isOpen, onClick }: AccordionItemProps
           isOpen ? 'max-h-96' : 'max-h-0'
         }`}
       >
-        <div className="px-4 pb-4 text-gray-700 text-sm">
-          {answer}
-        </div>
+          <div className="px-4 pb-4 text-gray-700 text-sm lg:px-6 lg:pb-6 lg:text-base">
+            {answer}
+          </div>
       </div>
     </div>
   );
@@ -89,13 +89,13 @@ export default function Faq() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 pt-8 bg-gray-50  ">
-     <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold text-[#05140A]"> Ordering food with Eato</h2>
+    <div className="w-full max-w-2xl mx-auto p-4 pt-8 bg-gray-50 lg:max-w-5xl lg:p-8 lg:pt-12 lg:bg-white">
+     <div className="flex justify-between items-center mb-4 lg:mb-6">
+        <h2 className="text-xl font-semibold text-[#05140A] lg:text-2xl lg:leading-tight"> Ordering food with Eato</h2>
         
       </div>
       
-      <div className="space-y-0">
+      <div className="space-y-0 lg:space-y-4">
         {faqItems.map((item, index) => (
           <AccordionItem
             key={index}
