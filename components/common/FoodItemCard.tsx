@@ -1,23 +1,23 @@
-'use client'
-import { Button } from '../ui/button'
-import { Clock, MapPin, Plus, Star } from 'lucide-react'
-import Image from 'next/image'
-import { useCartStore } from '@/store/useCartStore'
+"use client";
+import { Button } from "../ui/button";
+import { Clock, MapPin, Plus, Star } from "lucide-react";
+import Image from "next/image";
+import { useCartStore } from "@/store/useCartStore";
 
-import burger2 from '@/public/FoodItem/image.png'
-import { toast } from 'sonner'
-import { FoodItem } from '@/types/mockType'
-import { useState } from 'react'
+import burger2 from "@/public/FoodItem/image.png";
+import { toast } from "sonner";
+import { FoodItem } from "@/types/mockType";
+import { useState } from "react";
+import { Spinner } from "../ui/spinner";
 
 type Props = {
-    foodItems: FoodItem[],
-    sliceNo?:number
-}
+  foodItems: FoodItem[];
+  sliceNo?: number;
+};
 
-const FoodItemCard = ({foodItems,sliceNo}: Props) => {
-    
-
-    const addItem = useCartStore((state) => state.addItem);
+const FoodItemCard = ({ foodItems, sliceNo }: Props) => {
+  const addItem = useCartStore((state) => state.addItem);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const handleAddToCart = (food: any) => {
     addItem({
@@ -29,22 +29,29 @@ const FoodItemCard = ({foodItems,sliceNo}: Props) => {
     });
     toast.success(`${food.name} added to cart!`);
   };
+
   return (
     <div className="flex flex-col gap-4 lg:grid lg:grid-cols-2 lg:gap-6">
-        {(sliceNo ? foodItems.slice(0, sliceNo):foodItems).map((food) => {
-            const [imgSrc, setImgSrc] = useState(food.image);
-            return (
+      {(sliceNo ? foodItems.slice(0, sliceNo) : foodItems).map((food) => {
+        const [imgSrc, setImgSrc] = useState(food.image);
+        return (
           <div
             key={food.id}
             className="flex w-full gap-2 lg:gap-4 rounded-xl border-2 border-[#EBF4F1] bg-card p-2 lg:p-4 shadow-md hover:shadow-lg transition-shadow items-center"
           >
             <div className="relative w-28 h-28 lg:w-40 lg:h-40 rounded-lg overflow-hidden shrink-0">
+              {loading && (
+                <div className="w-full h-full flex justify-center items-center">
+                  <Spinner className="w-5 h-5" />
+                </div>
+              )}
               <Image
                 src={imgSrc}
                 alt={food.name}
                 fill
                 className="object-cover"
-                onError={()=>setImgSrc(burger2.src)}
+                onError={() => setImgSrc(burger2.src)}
+                onLoadingComplete={() => setLoading(false)}
               />
             </div>
 
@@ -62,7 +69,9 @@ const FoodItemCard = ({foodItems,sliceNo}: Props) => {
                 <div className="flex flex-col items-end">
                   <div className="flex items-center pt-0.5 gap-1 text-muted-foreground ">
                     <Star className="w-3 h-3 lg:w-4 lg:h-4 text-yellow-400" />
-                    <p className="font-medium text-xs lg:text-sm">{food.review.star}</p>
+                    <p className="font-medium text-xs lg:text-sm">
+                      {food.review.star}
+                    </p>
                     <p className="text-xs lg:text-sm">({food.review.count})</p>
                   </div>
                   {/* {food.deliveryFree && (
@@ -101,9 +110,10 @@ const FoodItemCard = ({foodItems,sliceNo}: Props) => {
               </div>
             </div>
           </div>
-        )})}
-      </div>
-  )
-}
+        );
+      })}
+    </div>
+  );
+};
 
-export default FoodItemCard
+export default FoodItemCard;

@@ -1,14 +1,12 @@
 import { Spinner } from "@/components/ui/spinner";
-import Image from "next/image";
-import logo from "@/public/logo.png";
 
 export default function Loading() {
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center bg-white">
+    <div className="w-screen h-screen flex flex-col items-center justify-center bg-white lg:w-auto">
       <Spinner />
-      <p className="flex">
-        <p className="text-[#379570] font-bold">Eato{`  `} </p> is preparing
-      </p>
+      <h1 className="flex">
+        <p className="text-[#379570] font-bold">Eato{`  `} </p>{`  `} is preparing
+      </h1>
     </div>
   );
 }
