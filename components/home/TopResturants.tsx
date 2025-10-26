@@ -17,9 +17,9 @@ const TopRestaurants = () => {
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold text-[#05140A]">Popular Foodspots</h2>
-        <span className="text-xs text-muted-foreground">
+        {/* <span className="text-xs text-muted-foreground">
           1 / {topRestaurants.length}
-        </span>
+        </span> */}
       </div>
 
       {/* Carousel */}
