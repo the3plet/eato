@@ -86,6 +86,8 @@ export const topRestaurants: Restaurant[] = [
   },
 ];
 
+export const  slides = ['https://marketplace.canva.com/EAGbR4PAz_A/1/0/400w/canva-red-yellow-minimalist-seafood-resturant-promotion-banner-7kzxxFD3K0Y.jpg', 'https://d3jmn01ri1fzgl.cloudfront.net/photoadking/webp_thumbnail/mercury-and-alto-fresh-sea-food-banner-template-tdug4i2d252f97.webp', 'https://img.freepik.com/free-vector/hand-drawn-asian-food-restaurant-sale-banner-template_23-2150066713.jpg']
+
 export const trendingFoodItems: FoodItem[] = [
   {
     id: "f1",
@@ -95,7 +97,7 @@ export const trendingFoodItems: FoodItem[] = [
     deliveryFree: true,
     review: { count: 124, star: 4.5 },
     deliveryTime: "30-40 mins",
-    image: "https://source.unsplash.com/200x150/?pizza",
+    image: "https://cdn.dotpe.in/longtail/store-items/8579865/AJgCnKEp.webp",
   },
   {
     id: "f2",
@@ -105,7 +107,7 @@ export const trendingFoodItems: FoodItem[] = [
     deliveryFree: false,
     review: { count: 98, star: 4.2 },
     deliveryTime: "20-30 mins",
-    image: "https://source.unsplash.com/200x150/?burger",
+    image: "https://www.sargento.com/assets/Uploads/Recipe/Image/cheddarbaconcheeseburger__FocusFillWyIwLjAwIiwiMC4wMCIsODAwLDQ3OF0_CompressedW10.jpg",
   },
   {
     id: "f3",
@@ -115,7 +117,7 @@ export const trendingFoodItems: FoodItem[] = [
     deliveryFree: true,
     review: { count: 76, star: 4.8 },
     deliveryTime: "25-35 mins",
-    image: "https://source.unsplash.com/200x150/?sushi",
+    image: "https://sudachirecipes.com/wp-content/uploads/2024/09/ebikyu-maki-thumb.png",
   },
   {
     id: "f4",
@@ -125,7 +127,7 @@ export const trendingFoodItems: FoodItem[] = [
     deliveryFree: true,
     review: { count: 142, star: 4.7 },
     deliveryTime: "15-25 mins",
-    image: "https://source.unsplash.com/200x150/?dessert",
+    image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTkHC9i9S9p4xEsSQNlFYxoWX-2UJ2IIz787oJoRDxyq62vinlBSV5pK7B7QiPHw89Zi1R6KESIYHKg8KEWXOA3tbHbAvXxb3e6j1GNn4po",
   },
 ];
 

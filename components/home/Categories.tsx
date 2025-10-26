@@ -35,7 +35,7 @@ const Categories = () => {
                   height={32}
                   className="rounded-full object-cover w-8 h-8 lg:w-12 lg:h-12"
                 />
-                <span className="text-sm font-medium text-[#05140A] lg:text-base">{category.name}</span>
+                <span className={`text-sm font-medium text-[#05140A] lg:text-base ${selectedId === category.id ? "text-white" : "text-foreground"}`}>{category.name}</span>
               </button>
             </CarouselItem>
           ))}

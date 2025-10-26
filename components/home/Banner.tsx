@@ -2,10 +2,10 @@
 
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
-import banner1 from '@/public/banner/banner1.png'
+import {slides} from "@/data/mockData"
 import Autoplay from "embla-carousel-autoplay"
 
-const slides = [banner1, banner1, banner1]
+
 
 export default function Banner() {
   return (

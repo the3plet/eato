@@ -9,8 +9,8 @@ const Header = (props: Props) => {
   return (
   <div className="w-full h-fit p-2 pt-4 flex justify-between lg:items-center sticky top-0 z-50 bg-white border-b border-gray-200">
       {/* left: logo/title */}
-      <div className="flex items-center gap-3">
-        <Image src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
+      <div className="flex items-center gap-0">
+        <Image src={logo} alt="Logo" className="w-10 h-10 rounded-full -rotate-12" />
         <h1 className="flex justify-start text-3xl lg:text-4xl font-bold">Eato</h1>
       </div>
 

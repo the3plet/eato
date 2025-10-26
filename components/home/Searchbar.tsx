@@ -16,11 +16,20 @@ type Props = {};
 
 const Searchbar = (props: Props) => {
   const [input, setInput] = useState<string>("");
-  // const [debouncedInput, setDebouncedInput] = useState<string>(input);  
-  const filteredData = useSearch(input);
+  const [debouncedInput, setDebouncedInput] = useState<string>(input);
+  const filteredData = useSearch(debouncedInput);
   const [model, setModel] = useState<boolean>(false);
 
+useEffect(() => {
+  // If input is empty, update immediately so results/overlay close without delay
+  if (!input || input.trim() === "") {
+    setDebouncedInput("");
+    return;
+  }
 
+  const handler = setTimeout(() => setDebouncedInput(input), 1000);
+  return () => clearTimeout(handler);
+}, [input]);
 
   useEffect(() => {
     if (filteredData.length > 0) {
@@ -43,7 +52,7 @@ const Searchbar = (props: Props) => {
         className="pl-10 w-full h-10 bg-[#f4f6f5] border-none rounded-md text-foreground placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:outline-none"
       />
       <Dialog open={model} onOpenChange={setModel}>
-        <DialogContent className="p-4 my-2 border-0 bg-slate-100">
+        <DialogContent className="p-4 my-2 border-0 bg-slate-100 z-50 absolute">
           <DialogTitle className="pb-1">Search Results</DialogTitle>
           {filteredData && (
             <FoodItemCard foodItems={filteredData} sliceNo={2} />
