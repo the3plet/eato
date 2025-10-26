@@ -52,21 +52,23 @@ export default function FilterModal({ open, onClose, onApply, initial, allItems 
     <div className="fixed inset-0 z-100 flex items-start p-4 md:items-center justify-center">
       <button type="button" aria-label="Close filter" className="absolute inset-0 bg-black/40" onClick={onClose} />
 
-      <div className="relative w-full md:w-3/5 bg-white rounded-t-lg md:rounded-lg p-4 md:p-6 max-h-[60vh] overflow-auto">
+      <div className="relative w-full md:w-3/5 bg-white rounded-lg md:rounded-lg p-4 md:p-6  overflow-auto">
         <h3 className="text-lg font-semibold mb-3">Filter items</h3>
 
         <div className="space-y-4">
+          <div className="overflow-y-auto max-h-[30vh]">
+
           <div>
-            <label htmlFor="min-price" className="block text-xs text-muted-foreground">Price range</label>
-            <div className="flex items-center gap-2 mt-2">
+            <label htmlFor="min-price" className="block text-sm text-muted-foreground">Price range</label>
+            <div className="flex items-center gap-2 mb-2">
               <Input id="min-price" name="min-price" type="number" placeholder="Min" value={minPrice ?? ''} onChange={(e:any)=>setMinPrice(e.target.value?Number(e.target.value):undefined)} className="w-1/2" />
               <Input id="max-price" name="max-price" type="number" placeholder="Max" value={maxPrice ?? ''} onChange={(e:any)=>setMaxPrice(e.target.value?Number(e.target.value):undefined)} className="w-1/2" />
             </div>
           </div>
 
           <fieldset>
-            <legend className="block text-xs text-muted-foreground">Tags</legend>
-            <div className="flex flex-wrap gap-2 mt-2">
+            <legend className="block text-sm text-muted-foreground">Tags</legend>
+            <div className="flex flex-wrap gap-2 mb-2">
               {allTags.map((t) => (
                 <Button
                   key={t}
@@ -83,8 +85,8 @@ export default function FilterModal({ open, onClose, onApply, initial, allItems 
           </fieldset>
 
           <fieldset>
-            <legend className="block text-xs text-muted-foreground">Restaurants</legend>
-            <div className="flex flex-wrap gap-2 mt-2">
+            <legend className="block text-sm text-muted-foreground ">Restaurants:</legend>
+            <div className="flex flex-wrap gap-2 mb-2">
               {allRestaurants.map((r) => (
                 <Button
                   key={r}
@@ -98,9 +100,10 @@ export default function FilterModal({ open, onClose, onApply, initial, allItems 
               ))}
             </div>
           </fieldset>
+          </div>
 
           <div className="flex justify-between mt-4">
-            <Button variant="outline" onClick={() => { setMinPrice(undefined); setMaxPrice(undefined); setTags([]); setRestaurants([]); setNewRestaurant('');}}>
+            <Button variant="outline" onClick={() => { setMinPrice(undefined); setMaxPrice(undefined); setTags([]); setRestaurants([]); setNewRestaurant('');  onApply({ minPrice:0, maxPrice:Infinity, tags:[], restaurants:'' }); onClose();}}>
               Reset
             </Button>
             <div className="flex gap-2">
