@@ -64,11 +64,18 @@ export default function Page() {
           <div className="space-y-3">
             {orders.map((o) => (
               <div key={o.id} className="border rounded p-3">
+                  <div className="text-xs">{new Date(o.createdAt).toLocaleString()}</div>
                 <div className="flex justify-between mb-2">
-                  <div className="text-sm">{new Date(o.createdAt).toLocaleString()}</div>
-                  <div className="font-semibold">₹{o.total.toFixed(0)}</div>
+                  <div className='flex flex-col'>
+                  <p className="text-lg">{o.items[0].name}</p>
+                  <p className="text-sm">{o.payment}</p>
+                  </div>
+                  <div>
+
+                  <p className="font-semibold">₹{o.total.toFixed(0)}</p>
+                <p className="text-xs text-muted-foreground">{o.items[0].qty} items</p>
                 </div>
-                <div className="text-sm text-muted-foreground">{o.items.length} items</div>
+                </div>
               </div>
             ))}
           </div>
