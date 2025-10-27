@@ -29,7 +29,7 @@ const Categories = () => {
                   setSelectedId(category.id);
                   setCategory(category.name);
                 }}
-                className={`flex items-center justify-center gap-2 px-2 pr-4 py-1 rounded-full whitespace-nowrap transition-colors lg:gap-3 lg:px-4 lg:pr-6 lg:py-2 ${
+                className={`flex items-center justify-center gap-2 px-2 pr-4 py-1 rounded-full whitespace-nowrap transition-colors lg:gap-2 lg:px-2 lg:pr-6 lg:py-1 lg:hover:bg-[#329570] lg:hover:text-white ${
                   selectedId === category.id
                     ? "bg-[#329570] text-white"
                     : "bg-[#EBF4F1] text-foreground hover:bg-muted/80"
@@ -37,7 +37,7 @@ const Categories = () => {
               >
                 <Image
                   src={category.image || "/placeholder.svg"}
-                  alt={category.name}
+                  alt={category.name} 
                   width={32}
                   height={32}
                   className="rounded-full object-cover w-8 h-8 lg:w-12 lg:h-12"
@@ -55,7 +55,7 @@ const Categories = () => {
             </CarouselItem>
           ))}
           <Badge
-            className={`px-4 ml-2  ${
+            className={`px-4 ml-2 lg:text-base ${
               selectedId === "clear"
                 ? "bg-slate-800"
                 : "bg-[#EBF4F1] text-black"
@@ -65,7 +65,7 @@ const Categories = () => {
               setCategory("all");
             }}
           >
-            Clear <X />
+            Clear <X className="lg:w-8 lg:h-8"/>
           </Badge>
         </CarouselContent>
       </Carousel>
