@@ -1,5 +1,5 @@
 "use client";
-import { Hamburger, Heart, Home, ShoppingBag, User } from "lucide-react";
+import { Hamburger, Home, ShoppingBag, User } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
@@ -9,6 +9,7 @@ type Props = {};
 
 const Navmenu = (props: Props) => {
   const [activeTab, setActiveTab] = useState("home");
+  const [windowWidth, setWindowWidth] = useState(0);
   const {items} = useCartStore()
   const router = useRouter();
   const pathname = usePathname();
@@ -42,17 +43,28 @@ const Navmenu = (props: Props) => {
 
   useEffect(()=>{
     const currentItem = navItems.find(item=>item.link===pathname)
-    const wScreen = window.innerWidth
     if(currentItem){
       setActiveTab(currentItem.id)
     }
   },[pathname])
+
+  useEffect(() => {
+    // Set initial width
+    setWindowWidth(window.innerWidth);
+
+    // Update width on resize
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <nav
       className="fixed bottom-1 w-Wscreen mx-4 left-0 right-0 bg-white border-2 border-[#EBF4F1] px-6 py-1 shadow-lg z-50 rounded-2xl md:hidden"
       role="navigation"
       aria-label="Primary"
-      style={{ width:`${window.innerWidth}px`,
+      style={{ width: windowWidth ? `${windowWidth}px` : '100%',
         // add the device safe-area inset if available, fallback to 0.25rem
         bottom: "calc(env(safe-area-inset-bottom, 0px) + 0.25rem)",
       }}

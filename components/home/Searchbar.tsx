@@ -65,7 +65,7 @@ useEffect(() => {
       <Dialog open={model} onOpenChange={setModel}>
         <DialogContent className=" md:max-w-auto max-h-[70vh] p-0 my-2 bg-white z-50 w-auto absolute top-16 rounded-2xl focus:outline-none overflow-hidden border-2 border-gray-100 shadow-2xl">
           <DialogTitle className="sr-only">Search Results</DialogTitle>
-          <div className="p-4 md:p-6 overflow-y-auto max-h-[70vh]">
+          <div className="p-4 md:p-6 overflow-y-auto w-full max-h-[70vh]">
             {filteredData.length > 0 ? (
               <>
                 <div className="flex w-full items-center justify-between mb-4 pb-3 border-b">
@@ -79,7 +79,7 @@ useEffect(() => {
                 <FoodItemCard foodItems={filteredData} sliceNo={6} page="search" />
               </>
             ) : (
-              <div className="flex flex-col w-full items-center justify-center py-12">
+              <div className="flex flex-col min-w-xs lg:min-w-xl items-center justify-center py-12">
                 <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-4">
                   <Search className="w-10 h-10 text-gray-300" />
                 </div>
