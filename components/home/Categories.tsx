@@ -7,13 +7,33 @@ import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import { useGlobalStore } from "@/store/useGlobalState";
 import { Badge } from "../ui/badge";
 import { X } from "lucide-react";
+import { gsap } from "gsap";
 
 const Categories = () => {
   const [selectedId, setSelectedId] = React.useState<string | undefined>();
   const { setCategory } = useGlobalStore();
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (containerRef.current) {
+      const items = containerRef.current.querySelectorAll('.category-item');
+      gsap.fromTo(items,
+        { scale: 0.8, opacity: 0, y: 20 },
+        { 
+          scale: 1, 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.5,
+          stagger: 0.08,
+          ease: "back.out(1.4)",
+          delay: 0.5
+        }
+      );
+    }
+  }, []);
 
   return (
-    <div className="w-full max-w-full px-4 rounded-full">
+    <div ref={containerRef} className="w-full max-w-full px-4 rounded-full">
       <Carousel
         opts={{
           align: "start",
@@ -23,7 +43,7 @@ const Categories = () => {
       >
         <CarouselContent className="-ml-2 lg:flex lg:justify-center md:flex md:justify-center">
           {foodCategories.map((category) => (
-            <CarouselItem key={category.id} className="basis-auto pl-2 ">
+            <CarouselItem key={category.id} className="basis-auto pl-2 category-item">
               <button
                 onClick={() => {
                   setSelectedId(category.id);

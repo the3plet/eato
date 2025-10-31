@@ -7,7 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <div>
-      <div className="hidden md:flex">
+      <div className="hidden md:flex w-screen bg-green-700">
         <Header />
       </div>
       {children}

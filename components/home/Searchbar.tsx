@@ -1,12 +1,7 @@
 "use client";
-import { Cross, Search, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Input } from "../ui/input";
-import { DropdownMenu } from "../ui/dropdown-menu";
-import {
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
 import FoodItemCard from "../common/FoodItemCard";
 import useSearch from "@/hooks/useSearch";
 import { Dialog } from "../ui/dialog";
@@ -41,32 +36,58 @@ useEffect(() => {
   }, [debouncedInput]);
 
   return (
-    <div className="relative mx-4 py-2">
-      <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-5 w-5" />
-      <Input
-        type="text"
-        value={input}
-        onChange={(e) => {
-          setInput(e.target.value)
-        }}
-        placeholder="Search your food"
-        className="pl-10 w-full h-10 bg-[#f4f6f5] border-none rounded-md text-foreground placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:outline-none"
-      />
-     {input && filteredData.length <= 1 && <Spinner className="absolute right-3 top-1/2 -translate-y-1/2"/>}
-     {input && filteredData.length >= 1 && <X className="absolute w-6 h-6 text-muted-foreground right-3 top-1/2 -translate-y-1/2" onClick={()=>setInput('')}/>}
+    <div className="relative mx-4 md:mx-6 lg:mx-auto lg:max-w-3xl py-3">
+      <div className="relative group">
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-[#369570] h-5 w-5 transition-colors" />
+        <Input
+          type="text"
+          value={input}
+          onChange={(e) => {
+            setInput(e.target.value)
+          }}
+          placeholder="Search your favorite dishes, restaurants..."
+          className="pl-12 pr-12 w-full h-12 md:h-14 bg-white/95 backdrop-blur-sm border-2 border-white/50 rounded-xl md:rounded-2xl text-gray-700 placeholder:text-gray-400 focus-visible:ring-2 focus-visible:ring-[#369570]/50 focus-visible:border-[#369570] shadow-xl transition-all"
+        />
+        {input && filteredData.length <= 1 && (
+          <Spinner className="absolute right-4 top-1/2 -translate-y-1/2" />
+        )}
+        {input && filteredData.length >= 1 && (
+          <button
+            onClick={() => setInput("")}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+            aria-label="Clear search"
+          >
+            <X className="w-5 h-5 text-gray-400 hover:text-gray-600" />
+          </button>
+        )}
+      </div>
+
       <Dialog open={model} onOpenChange={setModel}>
-        <DialogContent className="w-full min-h-20 p-4 my-2  bg-[#ebf4f1] z-10 absolute rounded-2xl focus:outline-white focus:outline-4 place-content-center">
-          <DialogTitle className="pb-1">
-            {/* Search Results */}
-          </DialogTitle>
-          {filteredData && (
-            <FoodItemCard foodItems={filteredData} sliceNo={2} />
-          )}
-          {filteredData.length === 0 && (
-            <div className="">
-              <p className=" text-sm text-center flex justify-center items-center">No results found</p>
-            </div>
+        <DialogContent className=" md:max-w-auto max-h-[70vh] p-0 my-2 bg-white z-50 w-auto absolute top-16 rounded-2xl focus:outline-none overflow-hidden border-2 border-gray-100 shadow-2xl">
+          <DialogTitle className="sr-only">Search Results</DialogTitle>
+          <div className="p-4 md:p-6 overflow-y-auto max-h-[70vh]">
+            {filteredData.length > 0 ? (
+              <>
+                <div className="flex w-full items-center justify-between mb-4 pb-3 border-b">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    Search Results
+                  </h3>
+                  <span className="text-sm text-gray-500">
+                    {filteredData.length} {filteredData.length === 1 ? "item" : "items"} found
+                  </span>
+                </div>
+                <FoodItemCard foodItems={filteredData} sliceNo={6} page="search" />
+              </>
+            ) : (
+              <div className="flex flex-col w-full items-center justify-center py-12">
+                <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                  <Search className="w-10 h-10 text-gray-300" />
+                </div>
+                <p className="text-base text-gray-600 font-medium">No results found</p>
+                <p className="text-sm text-gray-400 mt-1">Try a different search term</p>
+              </div>
             )}
+          </div>
         </DialogContent>
       </Dialog>
     </div>

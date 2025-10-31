@@ -5,6 +5,15 @@ import { FoodItem } from "@/types/mockType"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useGlobalStore } from "@/store/useGlobalState"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import { SlidersHorizontal } from "lucide-react"
 
 type Filters = {
   minPrice?: number
@@ -46,73 +55,141 @@ export default function FilterModal({ open, onClose, onApply, initial, allItems 
     else set([...arr, val])
   }
 
-  if (!open) return null
+  const handleReset = () => {
+    setMinPrice(undefined)
+    setMaxPrice(undefined)
+    setTags([])
+    setRestaurants([])
+    setNewRestaurant('')
+    onApply({ minPrice: 0, maxPrice: Infinity, tags: [], restaurants: [] })
+    onClose()
+  }
+
+  const handleApply = () => {
+    onApply({ minPrice, maxPrice, tags, restaurants })
+    onClose()
+  }
 
   return (
-    <div className="fixed inset-0 z-100 flex items-start p-4 md:items-center justify-center">
-      <button type="button" aria-label="Close filter" className="absolute inset-0 bg-black/40" onClick={onClose} />
+    <Dialog open={open} onOpenChange={onClose}>
+      <DialogContent className="max-w-[calc(100%-2rem)] md:max-w-2xl max-h-[85vh] overflow-hidden flex flex-col">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2 text-xl">
+            <div className="w-8 h-8 bg-linear-to-br from-[#369570] to-[#2d7a5c] rounded-lg flex items-center justify-center">
+              <SlidersHorizontal className="w-4 h-4 text-white" />
+            </div>
+            Filter Menu Items
+          </DialogTitle>
+          <DialogDescription>
+            Refine your search by price, tags, and restaurants
+          </DialogDescription>
+        </DialogHeader>
 
-      <div className="relative w-full md:w-3/5 bg-white rounded-lg md:rounded-lg p-4 md:p-6  overflow-auto">
-        <h3 className="text-lg font-semibold mb-3">Filter items</h3>
-
-        <div className="space-y-4">
-          <div className="overflow-y-auto max-h-[30vh]">
-
+        <div className="flex-1 overflow-y-auto space-y-5 py-4">
+          {/* Price Range */}
           <div>
-            <label htmlFor="min-price" className="block text-sm text-muted-foreground">Price range</label>
-            <div className="flex items-center gap-2 mb-2">
-              <Input id="min-price" name="min-price" type="number" placeholder="Min" value={minPrice ?? ''} onChange={(e:any)=>setMinPrice(e.target.value?Number(e.target.value):undefined)} className="w-1/2" />
-              <Input id="max-price" name="max-price" type="number" placeholder="Max" value={maxPrice ?? ''} onChange={(e:any)=>setMaxPrice(e.target.value?Number(e.target.value):undefined)} className="w-1/2" />
+            <div className="block text-sm font-medium text-gray-700 mb-2">
+              Price Range
+            </div>
+            <div className="flex items-center gap-3">
+              <Input
+                id="min-price"
+                name="min-price"
+                type="number"
+                placeholder="Min ₹"
+                value={minPrice ?? ""}
+                onChange={(e: any) =>
+                  setMinPrice(e.target.value ? Number(e.target.value) : undefined)
+                }
+                className="flex-1 h-10"
+              />
+              <span className="text-gray-400">—</span>
+              <Input
+                id="max-price"
+                name="max-price"
+                type="number"
+                placeholder="Max ₹"
+                value={maxPrice ?? ""}
+                onChange={(e: any) =>
+                  setMaxPrice(e.target.value ? Number(e.target.value) : undefined)
+                }
+                className="flex-1 h-10"
+              />
             </div>
           </div>
 
-          <fieldset>
-            <legend className="block text-sm text-muted-foreground">Tags</legend>
-            <div className="flex flex-wrap gap-2 mb-2">
-              {allTags.map((t) => (
-                <Button
-                  key={t}
-                  variant={tags.includes(t) ? "default" : "outline"}
-                  size="sm"
-                  asChild={false}
-                  onClick={() => toggle(tags, setTags, t)}
-                  className="px-3"
-                >
-                  {t}
-                </Button>
-              ))}
-            </div>
-          </fieldset>
+          {/* Tags */}
+          {allTags.length > 0 && (
+            <fieldset>
+              <legend className="block text-sm font-medium text-gray-700 mb-2">
+                Food Tags
+              </legend>
+              <div className="flex flex-wrap gap-2">
+                {allTags.map((t) => (
+                  <Button
+                    key={t}
+                    type="button"
+                    variant={tags.includes(t) ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => toggle(tags, setTags, t)}
+                    className={tags.includes(t) ? "bg-[#369570] hover:bg-[#2d7a5c]" : ""}
+                  >
+                    {t}
+                  </Button>
+                ))}
+              </div>
+            </fieldset>
+          )}
 
-          <fieldset>
-            <legend className="block text-sm text-muted-foreground ">Restaurants:</legend>
-            <div className="flex flex-wrap gap-2 mb-2">
-              {allRestaurants.map((r) => (
-                <Button
-                  key={r}
-                  variant={(restaurants.includes(r) || newRestaurant === r) ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => toggle(restaurants, setRestaurants, r)}
-                  className="px-3"
-                >
-                  {r}
-                </Button>
-              ))}
-            </div>
-          </fieldset>
-          </div>
-
-          <div className="flex justify-between mt-4">
-            <Button variant="outline" onClick={() => { setMinPrice(undefined); setMaxPrice(undefined); setTags([]); setRestaurants([]); setNewRestaurant('');  onApply({ minPrice:0, maxPrice:Infinity, tags:[], restaurants:[] }); onClose();}}>
-              Reset
-            </Button>
-            <div className="flex gap-2">
-              <Button variant="ghost" onClick={onClose}>Cancel</Button>
-              <Button onClick={() => { onApply({ minPrice, maxPrice, tags, restaurants }); onClose(); }}>Apply</Button>
-            </div>
-          </div>
+          {/* Restaurants */}
+          {allRestaurants.length > 0 && (
+            <fieldset>
+              <legend className="block text-sm font-medium text-gray-700 mb-2">
+                Restaurants
+              </legend>
+              <div className="flex flex-wrap gap-2">
+                {allRestaurants.map((r) => (
+                  <Button
+                    key={r}
+                    type="button"
+                    variant={
+                      restaurants.includes(r) || newRestaurant === r
+                        ? "default"
+                        : "outline"
+                    }
+                    size="sm"
+                    onClick={() => toggle(restaurants, setRestaurants, r)}
+                    className={
+                      restaurants.includes(r) || newRestaurant === r
+                        ? "bg-[#369570] hover:bg-[#2d7a5c]"
+                        : ""
+                    }
+                  >
+                    {r}
+                  </Button>
+                ))}
+              </div>
+            </fieldset>
+          )}
         </div>
-      </div>
-    </div>
+
+        <DialogFooter className="flex-row justify-between sm:justify-between">
+          <Button variant="outline" onClick={handleReset} className="flex-1 sm:flex-initial">
+            Reset All
+          </Button>
+          <div className="flex gap-2 flex-1 sm:flex-initial">
+            <Button variant="ghost" onClick={onClose} className="flex-1 sm:flex-initial">
+              Cancel
+            </Button>
+            <Button
+              onClick={handleApply}
+              className="bg-[#369570] hover:bg-[#2d7a5c] flex-1 sm:flex-initial"
+            >
+              Apply Filters
+            </Button>
+          </div>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   )
 }

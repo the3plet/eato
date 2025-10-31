@@ -11,15 +11,35 @@ import { Button } from "@/components/ui/button";
 import { topRestaurants } from "@/data/mockData";
 import burger from "@/public/FoodItem/burger.png";
 import { useGlobalStore } from "@/store/useGlobalState";
-import { use } from "react";
+import { use, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { gsap } from "gsap";
 
 const TopRestaurants = () => {
   const {setRestaurant} = useGlobalStore()
   const router= useRouter()
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const cards = containerRef.current.querySelectorAll('.restaurant-card');
+      gsap.fromTo(cards,
+        { opacity: 0, y: 40, scale: 0.95 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: "power3.out",
+          delay: 0.7
+        }
+      );
+    }
+  }, []);
 
   return (
-    <section className="w-full mt-6 px-4">
+    <section ref={containerRef} className="w-full mt-6 px-4">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold text-[#05140A]">Popular Foodspots</h2>
@@ -30,11 +50,11 @@ const TopRestaurants = () => {
 
       {/* Carousel */}
       <Carousel opts={{ align: "start" }} className="w-full ">
-        <CarouselContent className=" lg:justify-center md:flex md:justify-center">
+        <CarouselContent className=" lg:justify-start md:flex md:justify-center">
           {topRestaurants.map((restaurant) => (
             <CarouselItem onClick={() => {  setRestaurant(restaurant.name); router.push('/menu'); }}
                 key={restaurant.id}
-                className="basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/2 pl-4 lg:pl-6 lg:pr-6 lg:mx-2 "
+                className="basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/2 pl-4 lg:pl-6 lg:pr-6 lg:mx-2 restaurant-card"
             >
               <div
                 className={`rounded-2xl px-3 flex flex-col justify-between h-full transition-transform hover:scale-[1.02] `}

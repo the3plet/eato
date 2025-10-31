@@ -7,19 +7,55 @@ import { useCartStore } from "@/store/useCartStore";
 import burger2 from "@/public/FoodItem/image.png";
 import { toast } from "sonner";
 import { FoodItem } from "@/types/mockType";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Spinner } from "../ui/spinner";
+import { gsap } from "gsap";
 
 type Props = {
   foodItems: FoodItem[];
   sliceNo?: number;
+  page?: string;
 };
 
 // ✅ NEW: Separate component for each card
-const FoodCard = ({ food }: { food: FoodItem }) => {
+const FoodCard = ({ food, index }: { food: FoodItem, index: number }) => {
   const addItem = useCartStore((state) => state.addItem);
   const [imgSrc, setImgSrc] = useState(food.image); // ✅ Now it's safe!
   const [loading, setLoading] = useState<boolean>(true);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      gsap.fromTo(
+        cardRef.current,
+        { 
+          opacity: 0, 
+          y: 30,
+          scale: 0.95
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          delay: index * 0.1,
+          ease: "power2.out"
+        }
+      );
+    }
+  }, [index]);
+
+  const handleCardClick = () => {
+    if (cardRef.current) {
+      gsap.to(cardRef.current, {
+        scale: 0.98,
+        duration: 0.1,
+        yoyo: true,
+        repeat: 1,
+        ease: "power2.inOut",
+      });
+    }
+  };
 
   const handleAddToCart = (food: any) => {
     addItem({
@@ -30,12 +66,32 @@ const FoodCard = ({ food }: { food: FoodItem }) => {
       quantity: 1,
     });
     toast.success(`${food.name} added to cart!`);
+    
+    // Button click animation
+    if (cardRef.current) {
+      const button = cardRef.current.querySelector('button');
+      if (button) {
+        gsap.to(button, {
+          scale: 1.15,
+          duration: 0.15,
+          yoyo: true,
+          repeat: 1,
+          ease: "back.out(2)",
+        });
+      }
+    }
   };
 
   return (
-    <div className="md:px-40 lg:px-0">
+    <div ref={cardRef} className="md:px-40 lg:px-0">
 
-    <div className="flex w-full  md:w-auto lg:w-full  md:flex-1 gap-2 lg:gap-4 rounded-xl border-2 border-[#EBF4F1] bg-card p-2 lg:p-4 shadow-md hover:shadow-lg transition-shadow items-center">
+    <div 
+      onClick={handleCardClick}
+      onKeyDown={(e) => e.key === 'Enter' && handleCardClick()}
+      role="button"
+      tabIndex={0}
+      className="flex w-full  md:w-auto lg:w-full  md:flex-1 gap-2 lg:gap-4 rounded-2xl border-2 border-[#EBF4F1] bg-linear-to-br from-white to-gray-50 p-2 lg:p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.15)] transition-all duration-300 items-center active:scale-95 lg:hover:-translate-y-1 cursor-pointer"
+    >
       <div className="relative w-28 h-28 lg:w-40 lg:h-40 rounded-lg overflow-hidden shrink-0 ">
         {loading && (
           <div className="w-full h-full flex justify-center items-center">
@@ -108,11 +164,11 @@ const FoodCard = ({ food }: { food: FoodItem }) => {
 };
 
 // ✅ Main component now just maps without hooks
-const FoodItemCard = ({ foodItems, sliceNo }: Props) => {
+const FoodItemCard = ({ foodItems, sliceNo, page }: Props) => {
   return (
-    <div className="flex flex-col gap-4 lg:grid lg:grid-cols-2 lg:gap-6">
-      {(sliceNo ? foodItems.slice(0, sliceNo) : foodItems).map((food) => (
-        <FoodCard key={food.id} food={food} />
+    <div className={`flex flex-col gap-4 lg:grid  lg:gap-6 ${page === 'search' ? 'lg:grid-cols-1' : 'lg:grid-cols-2'}`}>
+      {(sliceNo ? foodItems.slice(0, sliceNo) : foodItems).map((food, index) => (
+        <FoodCard key={food.id} food={food} index={index} />
       ))}
     </div>
   );

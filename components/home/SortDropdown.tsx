@@ -30,9 +30,18 @@ export default function SortDropdown({ value, onChange }: Readonly<Props>) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="default" className="flex items-center gap-1">
-          <ListFilter size={14} />
-          Sort
+        <Button 
+          variant="outline" 
+          size="default" 
+          className="flex items-center gap-1.5 h-9 px-3 border-white/30 text-white hover:bg-white/10 hover:border-white/50 hover:text-white bg-transparent"
+        >
+          <ListFilter className="w-4 h-4" />
+          <span className="text-sm">Sort</span>
+          {value && (
+            <span className="ml-1 bg-white text-[#369570] text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+              1
+            </span>
+          )}
         </Button>
       </DropdownMenuTrigger>
 
