@@ -21,7 +21,7 @@ console.log(category)
   },[category])
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 pt-6">
+    <section className="w-full max-w-7xl mx-auto px-4 pt-6" id="recommended">
       <div className="flex justify-between items-center mb-6 md:mb-8">
         <div>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">

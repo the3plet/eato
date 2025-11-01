@@ -48,6 +48,8 @@ const Categories = () => {
                 onClick={() => {
                   setSelectedId(category.id);
                   setCategory(category.name);
+                  const target =document.getElementById("recommended");
+                  target?.scrollIntoView({ behavior: "smooth", block: "nearest"});
                 }}
                 className={`flex items-center justify-center gap-2 px-2 pr-4 py-1 rounded-full whitespace-nowrap transition-colors lg:gap-2 lg:px-2 lg:pr-6 lg:py-1 lg:hover:bg-[#329570] lg:hover:text-white ${
                   selectedId === category.id
